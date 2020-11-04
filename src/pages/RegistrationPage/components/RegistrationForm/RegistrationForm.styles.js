@@ -7,7 +7,7 @@ export const RegistrationForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(100% - 20px);
+  width: calc(100% - 40px);
 
   @media (min-width: 768px) {
     width: 370px
