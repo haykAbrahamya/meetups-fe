@@ -10,7 +10,7 @@ export const Input = (props) => {
 
   return (
     <InputContainer>
-      <InputStyled { ...props }>
+      <InputStyled { ...props } spellcheck='false'>
         { children }
       </InputStyled>
       {
