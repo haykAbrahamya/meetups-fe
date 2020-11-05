@@ -11,7 +11,10 @@ export const StrengthChecker = ({ strengthType, linesCount }) => {
 
     for (let ind = 0; ind < linesCount; ind++) {
       strengthLines.push(
-        <S.StrengthLine className={strengthType <= ind ? 'empty' : ''} />
+        <S.StrengthLine 
+          className={strengthType <= ind ? 'empty' : ''}
+          key={ind}
+        />
       )
     }
 
