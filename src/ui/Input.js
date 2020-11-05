@@ -26,8 +26,8 @@ const InputContainer = styled.div`
 `
 
 const InputStyled = styled.input`
-  width: calc(100% - 20px);
-  padding: 14px 10px;
+  width: calc(100% - ${p => p.rightPart ? '55px' : '20px'});
+  padding: 14px ${p => p.rightPart ? '45px' : '14px'} 14px 10px;
   background: #e7e7e7;
   border-radius: 5px;
   border: 2px solid ${p => p.error ? '#FF364E' : 'transparent'};

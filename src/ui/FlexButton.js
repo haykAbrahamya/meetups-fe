@@ -23,7 +23,7 @@ const Button = styled.div`
   padding: 20px 0px;
   color: #fff;
   font-family: sans-serif;
-  background: #7A4BFF;
+  background: #5E36FF;
   cursor: pointer;
   border-radius: 5px;
 `
