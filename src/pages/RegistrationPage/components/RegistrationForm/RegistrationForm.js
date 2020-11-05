@@ -5,7 +5,12 @@ import * as S from './RegistrationForm.styles'
 import { StrengthChecker } from '../../../../components/StrengthChecker'
 
 export const RegistrationForm = ({ register }) => {
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({
+    fullname: '',
+    username: '',
+    password: '',
+    retypePassword: ''
+  })
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [passwordStrength, setPasswordStrength] = useState(0)
   const [formErrors, setFormErrors] = useState({})
