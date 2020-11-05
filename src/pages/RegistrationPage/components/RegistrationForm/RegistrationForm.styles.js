@@ -57,7 +57,7 @@ export const TermsAndConditions = styled.div`
 
 export const RegisterButton = styled(FlexButton)`
   margin-top: 40px;
-  width: 270px;
+  width: 100%;
 
   @media (min-width: 768px) {
     width: 374px
