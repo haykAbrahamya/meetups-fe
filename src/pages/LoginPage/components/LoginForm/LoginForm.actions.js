@@ -1,5 +1,7 @@
 import { LOGIN_TYPES } from './LoginForm.types'
 import { FetchApi } from '../../../../helpers/FetchApi'
+import { storeUserData } from '../../../../common/user/user.actions'
+
 
 export const login = (form, onSuccess) => async dispatch => {
   try {
@@ -10,15 +12,13 @@ export const login = (form, onSuccess) => async dispatch => {
     const req = await FetchApi.post('user/login', form)
 
     const {
-      reqData: {
+      data: {
         userData,
         token
       }
     } = req
 
-    //dispatch(storeUserData(userData))
-
-    FetchApi.setToken(token)
+    dispatch(storeUserData(userData, token))
 
     dispatch({
       type: LOGIN_TYPES.LOGIN_SUCCESS
