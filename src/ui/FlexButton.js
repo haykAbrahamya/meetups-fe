@@ -24,7 +24,7 @@ const Button = styled.div`
   color: #fff;
   background: #5E36FF;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 7px;
   transition: background 0.3s ease;
 
   &:hover {

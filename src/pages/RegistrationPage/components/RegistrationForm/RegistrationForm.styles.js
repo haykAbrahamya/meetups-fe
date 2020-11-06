@@ -17,12 +17,16 @@ export const RegistrationForm = styled.div`
 export const FormItem = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   width: 100%;
+
+  @media (min-width: 768px) {
+    margin-bottom: 30px;
+  }
 `
 
 export const PasswordItem = styled(FormItem)`
-  margin-bottom: 17px;
+  margin-bottom: 7.5px;
 `
 
 export const ShowPasswordIcon = styled.div`
@@ -56,16 +60,21 @@ export const TermsAndConditions = styled.div`
 `
 
 export const RegisterButton = styled(FlexButton)`
-  margin-top: 40px;
+  margin-top: 30px;
   width: 100%;
 
   @media (min-width: 768px) {
-    width: 374px
+    width: 374px;
+    margin-top: 40px;
   }
 `
 
 export const StrengthCheckerContainer = styled.div`
-  margin-top: 13px;
+  margin-top: 7.5px;
+
+  @media (min-width: 768px) {
+    margin-top: 13px;
+  }
 `
 
 export const Input = styled(InputComponent)`

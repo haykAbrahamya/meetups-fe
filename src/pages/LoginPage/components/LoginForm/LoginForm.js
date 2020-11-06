@@ -54,9 +54,12 @@ export const LoginForm = ({ login, error }) => {
   
   return (
     <S.LoginForm>
-      <S.ResponseError>
-        { error }
-      </S.ResponseError>
+      {
+        error &&
+          <S.ResponseError>
+            { error }
+          </S.ResponseError>
+      }
       <S.FormItem>
         <Input 
           placeholder='Մուտքանուն'
