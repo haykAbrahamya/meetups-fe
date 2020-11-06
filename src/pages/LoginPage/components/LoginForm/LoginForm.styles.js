@@ -16,8 +16,12 @@ export const LoginForm = styled.div`
 export const FormItem = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   width: 100%;
+
+  @media (min-width: 768px) {
+    margin-bottom: 30px;
+  }
 `
 
 export const ErrorText = styled.div`
@@ -45,11 +49,12 @@ export const ShowPasswordIcon = styled.div`
 `
 
 export const LoginButton = styled(FlexButton)`
-  margin-top: 40px;
+  margin-top: 30px;
   width: 100%;
 
   @media (min-width: 768px) {
     width: 374px;
+    margin-top: 40px;
   }
 `
 

@@ -11,7 +11,6 @@ export const LayoutStandard = styled.div`
     z-index: 10;
     width: 100%;
     top: 0px;
-    border-bottom: 1px solid #d2d2d2;
     transition: top 0.3s ease;
   }
 
