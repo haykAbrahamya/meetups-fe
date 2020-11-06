@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import * as S from './RegistrationForm.styles'
 import { StrengthChecker } from '../../../../components/StrengthChecker'
 
-export const RegistrationForm = ({ register }) => {
+export const RegistrationForm = ({ register, error }) => {
   const [formData, setFormData] = useState({
     fullname: '',
     username: '',
@@ -93,6 +93,12 @@ export const RegistrationForm = ({ register }) => {
 
   return (
     <S.RegistrationForm>
+      {
+        error &&      
+          <S.ResponseError>
+            { error }
+          </S.ResponseError>
+      }
       <S.FormItem>
         <S.Input
           placeholder='Անուն'
