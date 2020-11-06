@@ -22,8 +22,6 @@ export const register = (form, onSuccess) => async dispatch => {
 
     if (typeof onSuccess === 'function') onSuccess()
   } catch (e) {
-    alert('Error')
-
     dispatch({
       type: REGISTRATION_TYPES.REGISTRATION_FAIL,
       error: e.data 
