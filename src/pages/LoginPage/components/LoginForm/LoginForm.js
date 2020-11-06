@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import * as S from './LoginForm.styles'
 import { Input } from '../../../../ui'
 
-export const LoginForm = ({ login }) => {
+export const LoginForm = ({ login, error }) => {
   const [formData, setFormData] = useState({
     username:"", 
     password:""
@@ -54,6 +54,9 @@ export const LoginForm = ({ login }) => {
   
   return (
     <S.LoginForm>
+      <S.ResponseError>
+        { error }
+      </S.ResponseError>
       <S.FormItem>
         <Input 
           placeholder='Մուտքանուն'
