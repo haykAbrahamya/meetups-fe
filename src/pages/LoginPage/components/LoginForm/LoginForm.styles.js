@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { FlexButton } from '../../../../ui'
+import { FlexButton, Input as InputComponent } from '../../../../ui'
 
 export const LoginForm = styled.div`
   display: flex;
