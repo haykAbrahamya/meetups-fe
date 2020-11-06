@@ -30,7 +30,6 @@ export const HeaderUnAuthWrapper = styled.div`
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  flex: 1;
 `
 
 export const Logo = styled.div`
@@ -55,8 +54,6 @@ export const ProjectName = styled.div`
 export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
-  flex: 1;
-  justify-content: flex-end;
 `
 
 export const HelperText = styled.div`
@@ -105,8 +102,6 @@ export const LinksContainer = styled.div`
 
   @media (min-width: 768px) {
     display: flex;
-    flex: 1;
-    justify-content: center;
   }
 `
 
