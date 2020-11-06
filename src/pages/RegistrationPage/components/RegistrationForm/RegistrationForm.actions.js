@@ -1,7 +1,5 @@
 import { FetchApi } from '../../../../helpers/FetchApi'
 import { REGISTRATION_TYPES } from './RegistrationForm.types'
-import { login } from '../../../LoginPage/components/LoginForm/LoginForm.actions'
-
 
 export const register = (form, onSuccess) => async dispatch => {
   try {
@@ -11,14 +9,13 @@ export const register = (form, onSuccess) => async dispatch => {
 
     await FetchApi.post('user', form)
 
-    dispatch(login({
-      username: form.username,
-      password: form.password
-    }))
+    //call login function after registration
 
     dispatch({
       type: REGISTRATION_TYPES.REGISTRATION_SUCCESS
     })
+
+    alert('Success')
 
     if (typeof onSuccess === 'function') onSuccess()
   } catch (e) {
