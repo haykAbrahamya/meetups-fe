@@ -106,9 +106,12 @@ export const RegistrationForm = ({ register, error }) => {
           onChange={(e) => updateForm({ fullname: e.target.value})}
           error={!!formErrors.fullname}
         />
-        <S.ErrorText>
-          { formErrors.fullname }
-        </S.ErrorText>
+        {
+          formErrors.fullname &&
+            <S.ErrorText>
+              { formErrors.fullname }
+            </S.ErrorText>
+        }
       </S.FormItem>
       <S.FormItem>
         <S.Input
@@ -117,9 +120,12 @@ export const RegistrationForm = ({ register, error }) => {
           onChange={(e) => updateForm({ username: e.target.value})}
           error={!!formErrors.username}
         />
-        <S.ErrorText>
-          { formErrors.username }
-        </S.ErrorText>
+        {
+          formErrors.username &&
+            <S.ErrorText>
+              { formErrors.username }
+            </S.ErrorText>
+        }
       </S.FormItem>
       <S.PasswordItem>
         <S.Input
@@ -140,9 +146,12 @@ export const RegistrationForm = ({ register, error }) => {
             linesCount={3}
           />
         </S.StrengthCheckerContainer>
-        <S.ErrorText>
-          { formErrors.password }
-        </S.ErrorText>
+        {
+          formErrors.password &&
+            <S.ErrorText>
+              { formErrors.password }
+            </S.ErrorText>
+        }
       </S.PasswordItem>
       <S.FormItem>
         <S.Input
@@ -152,9 +161,12 @@ export const RegistrationForm = ({ register, error }) => {
           type={passwordInputType} 
           error={!!formErrors.retypePassword}
         />
-        <S.ErrorText>
-          { formErrors.retypePassword }
-        </S.ErrorText>
+        {
+          formErrors.retypePassword &&
+            <S.ErrorText>
+              { formErrors.retypePassword }
+            </S.ErrorText>
+        }
       </S.FormItem>
       <S.TermsAndConditions>
         Գրանցվելով համաձայնվում եմ <span>Օրենքներին</span>
