@@ -9,6 +9,7 @@ export const LoginPageContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 50px 0px;
 `
 
 export const LoginPageTitle = styled.div`
