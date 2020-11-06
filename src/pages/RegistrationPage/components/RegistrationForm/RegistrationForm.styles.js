@@ -27,6 +27,10 @@ export const FormItem = styled.div`
 
 export const PasswordItem = styled(FormItem)`
   margin-bottom: 7.5px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 17px;
+  }
 `
 
 export const ShowPasswordIcon = styled.div`
