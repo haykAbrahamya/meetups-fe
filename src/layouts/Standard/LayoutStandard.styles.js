@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const LayoutStandard = styled.div`
   display: flex;
-  min-height: 100%;
-  flex-direction: column;
+  height: 100%;
+  flex-direction: ${p => p.isAuth ? 'row' : 'column'};
   position: relative;
 
   .StandardLayoutHeader {
@@ -15,12 +15,10 @@ export const LayoutStandard = styled.div`
   }
 
   .StandardLayoutContent {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    > * {
-      flex: 1;
-    };
+    width: 100%;
+    height: 100%;
     position: relative;
   }
 `
