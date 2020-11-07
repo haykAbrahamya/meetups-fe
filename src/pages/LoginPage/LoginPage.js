@@ -6,6 +6,7 @@ import { LoginForm } from './components/LoginForm'
 import { LayoutStandard } from '../../layouts/Standard'
 
 export const LoginPage = () => {
+
   return (
     <LayoutStandard>
       <S.LoginPageContainer>
