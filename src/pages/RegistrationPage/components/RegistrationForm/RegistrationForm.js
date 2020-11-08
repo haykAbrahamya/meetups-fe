@@ -47,7 +47,7 @@ export const RegistrationForm = ({ register, error }) => {
     } else if (password !== retypePassword) {
       errors.retypePassword = 'Գաղտնաբառերը չեն համընկնում'
     }
-    console.log('errors', errors)
+
     setFormErrors(errors)
     return !Object.keys(errors).length
   }
