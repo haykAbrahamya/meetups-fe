@@ -22,17 +22,19 @@ export const Routes = ({ isAuth }) => {
         <ProtectedRoute exact path='/meetups' component={TestPage} />
         <ProtectedRoute exact path='/last-meetups' component={TestPage} />
         <ProtectedRoute exact path='/notifications' component={TestPage} />
-        <ProtectedRoute exact path='/main' component={TestPage} />
+        <ProtectedRoute exact path='/profile' component={TestPage} />
+        <ProtectedRoute exact path='/search' component={TestPage} />
+        <ProtectedRoute exact path='/settings' component={TestPage} />
 
         {
           isAuth &&
-            <Redirect from='/login' to='/test' />
+            <Redirect from='/login' to='/' />
         }
         {
           isAuth &&
-            <Redirect from='/register' to='/test' />
+            <Redirect from='/register' to='/' />
         }
-        <Redirect exact from='/' to='/test' />
+        <Redirect exact from='/' to='/profile' />
         <Route exact path='/register' component={RegistrationPage} />
         <Route exact path='/login' component={LoginPage} />
         <Route path='*' component={NotFoundPage} />
