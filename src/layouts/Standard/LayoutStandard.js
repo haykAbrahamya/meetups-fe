@@ -3,27 +3,43 @@ import React from 'react'
 
 import * as S from './LayoutStandard.styles'
 import { HeaderUnAuth } from './HeaderUnAuth'
+import { HeaderAuth } from './HeaderAuth'
 import { Sidebar } from './Sidebar'
+import { BottomNavBar } from './BottomNavBar'
 
 
-export const LayoutStandard = ({ children, className = '', isAuth }) => {
+export const LayoutStandard = ({
+  isAuth ,
+  children,
+  isMobile,
+  className = '',
+}) => {
   return (
     <S.LayoutStandard isAuth={isAuth} className={`StandardLayout ${className}`}>
       {
-        !isAuth &&  
-          <div className='StandardLayoutHeader'>
-            <HeaderUnAuth />
-          </div>
+        isAuth && !isMobile &&
+          <Sidebar />
       }
-      {
-        isAuth &&
-          <Sidebar />  
-      }
-      <div className='StandardLayoutContent'>
+      <S.LayoutContent>
         {
-          children  
+          isAuth
+            ? <div className='StandardLayoutHeader'>
+                <HeaderAuth />
+              </div>
+            : <div className='StandardLayoutHeader'>
+                <HeaderUnAuth />
+              </div>
         }
-      </div>
+        <div className='StandardLayoutContent'>
+          {
+            children  
+          }
+        </div>
+      </S.LayoutContent>
+      {
+        isMobile && isAuth &&
+          <BottomNavBar />
+      }
     </S.LayoutStandard>
   )
 }

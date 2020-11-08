@@ -27,6 +27,9 @@ const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
 const postcssNormalize = require('postcss-normalize');
 
+const PARAM_SRC = '/src';
+const SOURCE_PATH = path.join(__dirname, PARAM_SRC);
+
 const appPackageJson = require(paths.appPackageJson);
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -326,6 +329,38 @@ module.exports = function(webpackEnv) {
 
         // First, run the linter.
         // It's important to do this before Babel processes the JS.
+        {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          use: ['file-loader?name=./images/[name].[ext]', 'image-webpack-loader'],
+          exclude: [SOURCE_PATH]
+        },
+        {
+          test: /\.module.svg$/,
+          use: [
+              'babel-loader',
+              'react-svg-loader'
+          ]
+        },
+        {
+          test: (path) => path.endsWith('.svg') && !path.endsWith('.module.svg'),
+          loader: 'svg-sprite-loader',
+          options: {
+            name: '[name]_[hash]',
+            prefixize: true
+          },
+          include: [SOURCE_PATH]
+        },
+        {
+          test: /\.(png|jp(e*)g|svg|gif)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: 'images/[hash]-[name].[ext]',
+              },
+            },
+          ],
+        },
         {
           test: /\.(js|mjs|jsx|ts|tsx)$/,
           enforce: 'pre',

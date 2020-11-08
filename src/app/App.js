@@ -1,14 +1,38 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 
 
 import { Routes } from '../routes'
 
-export const App = ({ isAuth, initApp }) => {
+export const App = ({
+  isAuth,
+  initApp,
+  initialized,
+  setWindowDimensions
+}) => {
+  const handleResize = useCallback(() => {
+    setWindowDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight
+    })
+  }, [
+    setWindowDimensions
+  ])
+
   useEffect(() => {
     initApp()
-  }, [initApp])
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [
+    initApp,
+    handleResize,
+    setWindowDimensions
+  ])
 
   return (
-    <Routes />
+    initialized &&
+      <Routes />
   )
 }
