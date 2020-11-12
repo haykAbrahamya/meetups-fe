@@ -13,14 +13,17 @@ export const LayoutStandard = ({
   children,
   isMobile,
   className = '',
+  RightPart,
+  match
 }) => {
+
   return (
     <S.LayoutStandard isAuth={isAuth} className={`StandardLayout ${className}`}>
       {
         isAuth && !isMobile &&
           <Sidebar />
       }
-      <S.LayoutContent>
+      <S.LayoutContent className='LayoutContent'>
         {
           isAuth
             ? <div className='StandardLayoutHeader'>
@@ -36,6 +39,12 @@ export const LayoutStandard = ({
           }
         </div>
       </S.LayoutContent>
+      {
+        RightPart &&
+          <div className='StandardLayoutRightPart'>
+            <RightPart />  
+          </div>
+      }
       {
         isMobile && isAuth &&
           <BottomNavBar />

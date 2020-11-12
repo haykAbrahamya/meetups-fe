@@ -5,16 +5,21 @@ import styled from 'styled-components'
 export const Input = (props) => {
   const {
     children,
-    rightPart
+    rightPart,
+    leftPart,
+    containerClassname
   } = props
 
   return (
-    <InputContainer>
+    <InputContainer className={containerClassname}>
+      {
+        leftPart
+      }
       <InputStyled { ...props } spellcheck='false'>
         { children }
       </InputStyled>
       {
-        rightPart  
+        rightPart
       }
     </InputContainer>
   )
