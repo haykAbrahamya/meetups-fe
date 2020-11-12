@@ -15,8 +15,11 @@ export const ProjectName = styled.div`
 export const Logo = styled.div`
   width: 30px;
   height: 25px;
-  margin-left: 50px;
   background: url('/images/icons/logo.svg');
+
+  @media (min-width: 1325px) {
+    margin-left: 50px;
+  }
 `
 
 export const SidebarItemTitle = styled.div`
@@ -27,10 +30,9 @@ export const SidebarItem = styled.div`
   display: flex;
   color: #B5B2BD;
   width: ${p => p.menuOpened ? '230px' : '30px'};
-  padding: 15px 35px;
+  padding: 25px 35px;
   cursor: pointer;
   align-items: center;
-  margin-bottom: 20px;
   font-weight: bold;
   transition: background 0.3s ease;
 
@@ -51,11 +53,16 @@ export const SidebarItem = styled.div`
 
 export const SidebarHeader = styled.div`
   align-items: center;
-  width: calc(100% - 80px);
   min-height: 80px;
   max-height: 80px;
-  padding: 0px 40px;
   display: flex;
+  justify-content: center;
+
+  @media (min-width: 1325px) {
+    width: calc(100% - 80px);
+    padding: 0px 40px;
+    justify-content: normal;
+  }
 `
 
 export const SidebarContent = styled.div`
