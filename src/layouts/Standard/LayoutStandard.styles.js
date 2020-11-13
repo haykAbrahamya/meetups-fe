@@ -26,7 +26,7 @@ export const LayoutStandard = styled.div`
     width: 100%;
     height: 100%;
     overflow-y: scroll;
-    margin-bottom: 80px;
+    margin-bottom: ${p => p.isAuth ? '80px' : '0px'};
 
     scrollbar-color: #5E36FF transparent;
     scrollbar-width: thin;
