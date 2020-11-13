@@ -6,7 +6,7 @@ import * as S from './BottomNavBar.styles'
 import { GLYPHS } from '../../../components/Icon'
 
 
-export const BottomNavBar = () => {
+export const BottomNavBar = ({ isAuth }) => {
   const history = useHistory()
   const [pathname, setPathname] = useState('')
 
@@ -14,25 +14,30 @@ export const BottomNavBar = () => {
     {
       id: 1,
       icon: GLYPHS.profile,
-      path: '/profile'
+      path: '/profile',
+      visible: true
     },
     {
       id: 2,
       icon: GLYPHS.meetups,
-      path: '/meetups'
+      path: '/meetups',
+      visible: true
     },
     {
-      id: 3
+      id: 3,
+      visible: true
     },
     {
       id: 4,
       icon: GLYPHS.search,
-      path: '/search'
+      path: '/search',
+      visible: true
     },
     {
       id: 5,
       icon: GLYPHS.notification,
-      path: '/notifications'
+      path: '/notifications',
+      visible: true
     },
   ]
 
@@ -52,29 +57,30 @@ export const BottomNavBar = () => {
       {
         items.map((item, ind) => {
           const isItemActive = pathname === item.path
-
           return (
-            ind === parseInt(items.length / 2)
-              ? <S.CreateMeetupButton key={item.id}>
-                  <S.PlusIcon
-                    glyph={GLYPHS.plus}
-                    fill='#fff'
-                    width={14}
-                    height={14}
-                  />
-                </S.CreateMeetupButton>
-              : <S.BottomNavBarItem 
-                  className={isItemActive ? 'active' : ''} 
-                  onClick={() => changeMenu(item.path)}
-                  key={item.id}
-                >
-                  <S.BottomNavBarItemIcon 
-                    glyph={item.icon}
-                    fill={isItemActive ? '#12131D' : '#B5B2BD'}
-                    width={24}
-                    height={24}
-                  />
-                </S.BottomNavBarItem>
+            item.visible
+              ? ind === parseInt(items.length / 2)
+                  ? <S.CreateMeetupButton key={item.id}>
+                      <S.PlusIcon
+                        glyph={GLYPHS.plus}
+                        fill='#fff'
+                        width={14}
+                        height={14}
+                      />
+                    </S.CreateMeetupButton>
+                  : <S.BottomNavBarItem 
+                      className={isItemActive ? 'active' : ''} 
+                      onClick={() => changeMenu(item.path)}
+                      key={item.id}
+                    >
+                      <S.BottomNavBarItemIcon 
+                        glyph={item.icon}
+                        fill={isItemActive ? '#12131D' : '#B5B2BD'}
+                        width={24}
+                        height={24}
+                      />
+                    </S.BottomNavBarItem>
+              : null
           )
         })  
       }

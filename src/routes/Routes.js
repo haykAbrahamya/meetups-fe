@@ -10,6 +10,7 @@ import {
 import { TestPage } from '../pages/TestPage'
 import { RegistrationPage } from '../pages/RegistrationPage'
 import { LoginPage } from '../pages/LoginPage'
+import { SearchUsersPage } from '../pages/SearchUsersPage'
 import { ProtectedRoute } from './ProtectedRoute'
 import { NotFoundPage } from '../pages/NotFoundPage'
 
@@ -23,7 +24,7 @@ export const Routes = ({ isAuth }) => {
         <ProtectedRoute exact path='/last-meetups' component={TestPage} />
         <ProtectedRoute exact path='/notifications' component={TestPage} />
         <ProtectedRoute exact path='/profile' component={TestPage} />
-        <ProtectedRoute exact path='/search' component={TestPage} />
+        <ProtectedRoute exact path='/search' component={SearchUsersPage} />
         <ProtectedRoute exact path='/settings' component={TestPage} />
 
         {
