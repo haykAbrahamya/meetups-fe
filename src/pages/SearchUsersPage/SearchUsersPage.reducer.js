@@ -1,24 +1,8 @@
 import { SEARCH_USERS_TYPES } from './SearchUsersPage.types'
 
-const userObj = {
-  fullname: 'Hayk Abrahamyan',
-  username: 'hayk.abrahamyan',
-  rating: 3.5,
-  followersCount: 153,
-  meetupsCount: 32,
-  specialization: 'Front-end Developer',
-  about: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-}
-
 const initialState = {
   filterOpened: false,
-  results: [
-    userObj,
-    userObj,
-    userObj,
-    userObj,
-    userObj
-  ],
+  results: [],
   filters: {}
 }
 
