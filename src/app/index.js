@@ -3,15 +3,18 @@ import { connect } from 'react-redux'
 
 import { App as Self } from './App'
 import {
-  initApp
+  initApp,
+  setWindowDimensions
 } from '../common/app/app.actions'
 
-const mapStateToProps = (state) => ({
-  isAuth: state.user.isAuth
+const mapStateToProps = ({ user, app }) => ({
+  isAuth: user.isAuth,
+  initialized: app.initialized
 })
 
 const mapDispatchToProps = {
-  initApp
+  initApp,
+  setWindowDimensions
 }
 
 export const App = connect(mapStateToProps, mapDispatchToProps)(Self)
