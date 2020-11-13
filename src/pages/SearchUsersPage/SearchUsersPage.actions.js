@@ -38,7 +38,7 @@ export const loadUsers = (filters) => async (dispatch, getState) => {
 
     dispatch({
       type: SEARCH_USERS_TYPES.LOAD_USERS,
-      users: data.rows
+      users: data
     })
   } catch (e) {
     alert('error')
