@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 
 
 
 import * as S from './Sidebar.styles'
 import { GLYPHS } from '../../../components/Icon'
+import cx from '../../../helpers/cx'
 
 
-export const Sidebar = ({ sidebarOpened, toggleSidebar }) => {
-  const history = useHistory()
+export const Sidebar = ({ sidebarOpened, toggleSidebar, isDesktop }) => {
   const [pathname, setPathname] = useState('')
+  const location = useLocation()
+  const history = useHistory()
 
   useEffect(() => {
-    setPathname(history.location.pathname)
-  }, [history.location.pathname])
+    setPathname(location.pathname)
+  }, [
+    setPathname,
+    location.pathname
+  ])
 
   const items = [
     {
@@ -30,7 +35,7 @@ export const Sidebar = ({ sidebarOpened, toggleSidebar }) => {
     },
     {
       id: 3,
-      title: 'Փնտրել',
+      title: 'Փնտրում',
       icon: GLYPHS.search,
       path: '/search'
     },
@@ -50,15 +55,24 @@ export const Sidebar = ({ sidebarOpened, toggleSidebar }) => {
 
   const changeMenu = (path) => {
     history.push(path)
-    setPathname(history.location.pathname)
+    setPathname(location.pathname)
   }
 
+  const isSidebarOpened = sidebarOpened && isDesktop
+
   return (
-    <S.SidebarContainer className={sidebarOpened ? 'opened' : ''}>
+    <S.SidebarContainer className={cx({ opened: isSidebarOpened})}>
       <S.SidebarHeader>
-        <S.SidebarToggler onClick={toggleSidebar}/>
         {
-          sidebarOpened &&
+          isDesktop &&  
+            <S.SidebarToggler onClick={toggleSidebar} />
+        }
+        {
+          !isDesktop &&
+            <S.Logo />
+        }
+        {
+          isSidebarOpened &&
             <>
               <S.Logo />
               <S.ProjectName>
@@ -76,7 +90,7 @@ export const Sidebar = ({ sidebarOpened, toggleSidebar }) => {
               return (
                 <S.SidebarItem 
                   className={isItemActive ? 'active' : ''} 
-                  menuOpened={sidebarOpened}
+                  menuOpened={isSidebarOpened}
                   onClick={() => changeMenu(item.path)}
                   key={item.id}
                 >
@@ -87,7 +101,7 @@ export const Sidebar = ({ sidebarOpened, toggleSidebar }) => {
                     height={24}
                   />
                   {
-                    sidebarOpened &&
+                    isSidebarOpened &&
                       <S.SidebarItemTitle>
                         { item.title }
                       </S.SidebarItemTitle>
@@ -98,7 +112,7 @@ export const Sidebar = ({ sidebarOpened, toggleSidebar }) => {
           }
         <S.CreateMeetupButton>
           {
-            sidebarOpened
+            isSidebarOpened
               ? 'Ստեղծել'
               : <S.PlusIcon />
           }
