@@ -6,7 +6,7 @@ import { toggleSidebar } from '../../../common/app/app.actions'
 
 const mapStateToProps = ({ app }) => ({
   sidebarOpened: app.sidebarOpened,
-  isDesktop: app.dimensions.width >= 1325
+  isDesktop: app.dimensions.width >= 1436
 })
 
 const mapDispatchToProps = {

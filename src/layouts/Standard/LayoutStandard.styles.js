@@ -26,7 +26,7 @@ export const LayoutStandard = styled.div`
     width: 100%;
     height: 100%;
     overflow-y: scroll;
-    margin-bottom: ${p => p.isAuth ? '80px': '0px'};
+    margin-bottom: 80px;
 
     scrollbar-color: #5E36FF transparent;
     scrollbar-width: thin;
@@ -55,5 +55,4 @@ export const LayoutContent = styled.div`
   width: 100%;
   height: 100%;
   margin-bottom: 120px;
-  padding-right: 15px;
 `

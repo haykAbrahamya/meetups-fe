@@ -3,31 +3,22 @@ import { useHistory } from 'react-router-dom'
 
 
 import * as S from './HeaderAuth.styles'
-import { GLYPHS } from '../../../components/Icon'
+import { GLYPHS, Icon } from '../../../components/Icon'
+import { UsersSearchInput } from '../../../components/UsersSearchInput'
 
 
 export const HeaderAuth = ({
   sidebarOpened,
   updateFilter,
-  filters,
+  toggleFilter,
   loadUsers,
-  isMobile
+  filters,
+  isMobile,
+  isDesktop
  }) => {
   const history = useHistory()
   const isSearchPage = history.location.pathname === '/search'
-  const showLogoContainer = !sidebarOpened || isMobile
-
-  const handleSearchUsers = (e) => {
-    if (e.keyCode === 13) {
-      const name = e.target.value
-      if (isSearchPage) {
-        updateFilter({ name })
-        loadUsers()
-      } else {
-        history.push(`/search?name=${name}`)
-      }
-    }
-  }
+  const showLogoContainer = !sidebarOpened
 
   return (
     <S.HeaderAuthContainer>
@@ -40,20 +31,15 @@ export const HeaderAuth = ({
             </S.ProjectName>
           </>
       }
-      <S.SearchInput
-        placeholder='Որոնել'
-        containerClassname='SearchInput'
-        onChange={(e) => updateFilter({ name: e.target.value }, false)}
-        onKeyUp={handleSearchUsers}
-        value={filters.name}
-        leftPart={
-          <S.SearchInputIcon
-            glyph={GLYPHS.searchInput}
-            width={14}
-            height={14}
-          />  
-        }
-      />
+      <UsersSearchInput />
+      {
+        !isDesktop && isSearchPage &&
+          <S.ToggleFilterButton onClick={toggleFilter}>
+            <Icon
+              glyph={GLYPHS.filter}
+            />
+          </S.ToggleFilterButton>
+      }
     </S.HeaderAuthContainer>  
   )
 }

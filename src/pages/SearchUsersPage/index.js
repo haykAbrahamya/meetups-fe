@@ -9,9 +9,10 @@ import {
   updateFilterFromQuery
 } from './SearchUsersPage.actions'
 
-const mapStateToProps = ({ searchUsersPage, results }) => ({
+const mapStateToProps = ({ searchUsersPage, results, app }) => ({
   filterOpened: searchUsersPage.filterOpened,
-  results: searchUsersPage.results
+  results: searchUsersPage.results,
+  isDesktop: app.dimensions.width >= 1280
 })
 
 const mapDispatchToProp = {

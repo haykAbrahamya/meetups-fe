@@ -8,7 +8,8 @@ import cx from '../../../../helpers/cx'
 import { sortTypes } from '../../SearchUsersPage.types'
 
 
-export const Filters = ({ toggleFilter, updateFilter, filters }) => {
+export const Filters = ({ viewportWidth, toggleFilter, updateFilter, filters }) => {
+  const isDesktop = viewportWidth >= 1280
 
   const sortTypesOptions = [
     {
@@ -31,20 +32,30 @@ export const Filters = ({ toggleFilter, updateFilter, filters }) => {
   return (
     <S.FiltersContainer>
       <S.FiltersContainerHeader>
+        <Icon
+          glyph={GLYPHS.filter}
+          fill='#000'
+          width={15}
+          height={15}
+        />
       <S.FiltersContainerTitle>
         Ֆիլտր
       </S.FiltersContainerTitle>
-      <S.HideFiltersButton onClick={toggleFilter}>
-        <Icon
-          glyph={GLYPHS.settings}
-          width={30}
-          height={30}
-        />
-      </S.HideFiltersButton>
+      {
+        !isDesktop &&
+          <S.HideFiltersButton onClick={toggleFilter}>
+            <Icon
+              glyph={GLYPHS.close}
+              width={25}
+              height={25}
+              fill='#000'
+            />
+          </S.HideFiltersButton>
+      }
       </S.FiltersContainerHeader>
       <S.FilterSection>
         <S.FilterSectionTitle>
-          Սորտավորել ըստ՝
+          Սորտավորել ըստ
         </S.FilterSectionTitle>
         {
           sortTypesOptions.map(option => {
