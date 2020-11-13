@@ -5,21 +5,21 @@ import qs  from 'qs'
 import * as S from './SearchUsersPage.styles'
 import { UserSearchCard } from '../../components/UserSearchCard'
 import { Filters } from './components/Filters'
-import { Icon, GLYPHS } from '../../components/Icon'
 import cx from '../../helpers/cx'
 
 
 export const SearchUsersPage = ({
   match,
   results,
+  filters,
   location,
+  isDesktop,
+  loadUsers,
   filterOpened,
   clearFilters,
-  loadUsers,
   toggleFilter,
   updateFilterFromQuery,
   updateQueryFromFilter,
-  filters
 }) => {
   const [init, setInit] = useState(false)
 
@@ -54,32 +54,40 @@ export const SearchUsersPage = ({
     clearFilters
   ])
 
-  return (
-    <S.Layout className={cx({ filterOpened })}>
-      <S.ShadowBackground 
-        onClick={filterOpened ? toggleFilter : null}
-        className={cx({ filterOpened })}
-      />
-      <S.FiltersContainer className={cx({ filterOpened })}>
+  const isFiltersOpen = filterOpened || isDesktop
+
+  const RightPart = () => {
+    return (
+      <S.FiltersContainer className={cx({ filterOpened: isFiltersOpen })}>
         <Filters />
       </S.FiltersContainer>
+    )
+  }
+
+  return (
+    <S.Layout className={cx({ filterOpened: isFiltersOpen })} RightPart={isDesktop ? RightPart : null}>
+      <S.ShadowBackground 
+        onClick={filterOpened ? toggleFilter : null}
+        className={cx({ filterOpened: isFiltersOpen })}
+      />
+      {
+        !isDesktop &&
+          <S.FiltersContainer className={cx({ filterOpened: isFiltersOpen })}>
+            <Filters />
+          </S.FiltersContainer>
+      }
       <S.SearchUsersPageContainer className='PageContainer'>
-        {
-          results.map((user, ind) => {
-            return (
-              <S.SearchCardContainer key={ind}>
-                <UserSearchCard user={user}/>
-              </S.SearchCardContainer>
-            )
-          })
-        }
-        <S.ToggleFilterButton onClick={toggleFilter}>
-          <Icon
-            glyph={GLYPHS.settings}
-            width={40}
-            height={40}
-          />
-        </S.ToggleFilterButton>
+        <S.Results>
+          {
+            results && results.map((user, ind) => {
+              return (
+                <S.SearchCardContainer key={ind}>
+                  <UserSearchCard user={user}/>
+                </S.SearchCardContainer>
+              )
+            })
+          }
+        </S.Results>
       </S.SearchUsersPageContainer>
     </S.Layout>
   )

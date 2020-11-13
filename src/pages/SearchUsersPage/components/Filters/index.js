@@ -8,8 +8,9 @@ import {
 } from '../../SearchUsersPage.actions'
 
 
-const mapStateToProps = ({ searchUsersPage }) => ({
-  filters: searchUsersPage.filters
+const mapStateToProps = ({ searchUsersPage, app }) => ({
+  filters: searchUsersPage.filters,
+  viewportWidth: app.dimensions.width
 })
 
 const mapDispatchToProps = {

@@ -16,9 +16,14 @@ export const Layout = styled(LayoutStandard)`
 export const SearchUsersPageContainer = styled.div`
   padding: 20px;
   display: flex;
-  flex-direction: column;
-  
+  justify-content: center;
+
   @media (min-width: 768px) {
+    padding-top: 0px !important;
+    padding: 30px;
+  }
+
+  @media (min-width: 1280px) {
     padding: 50px;
   }
 `
@@ -26,7 +31,7 @@ export const SearchUsersPageContainer = styled.div`
 export const FiltersContainer = styled.div`
   transition: all 0.3s ease;
   position: absolute;
-  background: #E9E9E9;
+  background: #eee;
   right: -100%;
   height: 100%;
   z-index: 12;
@@ -41,27 +46,47 @@ export const FiltersContainer = styled.div`
     right: -400px;
     width: 400px;
   }
+
+  @media (min-width: 1280px) {
+    position: unset;
+  }
 `
 
 export const SearchCardContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 55px;
-
-  &:last-child {
-    margin-bottom: 0px;
+  margin: 15px;
+  &:first-of-type {
+    margin-top: 0px;
   }
 
   @media (min-width: 768px) {
     justify-content: flex-start;
+    margin: 15px;
+
+    &:first-of-type {
+      margin-top: 15px;
+    }
   }
+
+  @media (min-width: 1280px) {
+    margin: 25px;
+    &:first-of-type {
+      margin-top: 25px;
+    }
+  }
+
 `
 
-export const ToggleFilterButton = styled.div`
-  cursor: pointer;
-  position: absolute;
-  top: 120x;
-  right: 80px;
+export const Results = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
 `
 
 export const ShadowBackground = styled.div`
@@ -76,11 +101,15 @@ export const ShadowBackground = styled.div`
   z-index: -1;
 
   &.filterOpened {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(18, 19, 29, 0.5);
     z-index: 11;
   }
 
   @media (min-width: 768px) {
     display: block;
+  }
+
+  @media (min-width: 1280px) {
+    display: none;
   }
 `
