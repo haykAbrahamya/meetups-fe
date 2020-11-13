@@ -11,8 +11,6 @@ export const HeaderUnAuth = (props) => {
   const isRegistrationPage = history.location.pathname === '/register'
   const isLoginPage = history.location.pathname === '/login'
 
-  const showAllButtons = !isRegistrationPage && !isLoginPage
-
   return (
     <S.HeaderUnAuthContainer>
       <S.HeaderUnAuthWrapper>
@@ -33,25 +31,15 @@ export const HeaderUnAuth = (props) => {
             Մեր մասին
           </S.PageLink>
         </S.LinksContainer>
-        <S.ButtonsContainer showAllButtons={showAllButtons}>
+        <S.ButtonsContainer>
           {
-            !showAllButtons &&
-              <S.HelperText>
-                {
-                  isRegistrationPage
-                    ? 'Արդեն գրանցվե՞լ ես'
-                    : 'Գրանցված չե՞ս'
-                }
-              </S.HelperText>
-          }
-          {
-            (isLoginPage || showAllButtons) &&
+            (isLoginPage) &&
               <S.Button to='/register'>
                 Գրանցվել
               </S.Button>
           }
           {
-            (isRegistrationPage || showAllButtons) &&
+            (isRegistrationPage) &&
               <S.Button to='/login'>
                 Մուտք գործել
               </S.Button>
