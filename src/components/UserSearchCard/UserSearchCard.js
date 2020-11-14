@@ -3,8 +3,15 @@ import React from 'react'
 
 import * as S from './UserSearchCard.styles'
 import { Icon, GLYPHS } from '../Icon'
+import cx from '../../helpers/cx'
 
-export const UserSearchCard = ({ user, isMobile }) => {
+export const UserSearchCard = ({
+  user,
+  isMobile,
+  following,
+  followUser,
+  unfollowUser
+}) => {
   const [firstname, lastname] = user.fullname.split(' ')
   const counts = [
     {
@@ -26,6 +33,17 @@ export const UserSearchCard = ({ user, isMobile }) => {
       count: user.meetupsCount
     }
   ]
+
+
+  const follow = following && following.find(_ => _.user.id === user.id)
+  const followingHandler = () => {
+    if (follow) {
+      unfollowUser(user.id)
+    } else {
+      followUser(user.id)
+    }
+  }
+
 
   return (
     <S.UserSearchCardContainer>
@@ -67,8 +85,12 @@ export const UserSearchCard = ({ user, isMobile }) => {
           })
         }
       </S.CountsContainer>
-      <S.FollowButton>
-        Հետևել
+      <S.FollowButton className={cx({ follow })} onClick={followingHandler}>
+        {
+          follow
+            ? 'Հետևորդ'
+            : 'Հետևել'
+        }
       </S.FollowButton>
     </S.UserSearchCardContainer>
   )
