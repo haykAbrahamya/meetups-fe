@@ -3,6 +3,7 @@ import React, { useEffect, useCallback } from 'react'
 
 import { Routes } from '../routes'
 
+
 export const App = ({
   isAuth,
   initApp,

@@ -1,5 +1,7 @@
 import qs from "qs";
 import { omit } from "lodash";
+import { browserHistory } from '../system/history'
+
 
 export class FetchApi {
   static getUrl() {
@@ -94,10 +96,12 @@ export class FetchApi {
         encode: true,
       })}`;
     } else if (method === "DELETE") {
-      const ids = {
-        ids: filteredData,
-      };
-      myInit.body = JSON.stringify(ids);
+      if (filteredData && filteredData.length > 0) {
+        const ids = {
+          ids: filteredData,
+        };
+        myInit.body = JSON.stringify(ids);
+      }
     } else {
       myInit.body = JSON.stringify(filteredData);
     }
@@ -108,7 +112,7 @@ export class FetchApi {
           .json()
           .then((json) => {
             if (res.status === 401) {
-              return window.replace("/");
+              return browserHistory.push('/')
             }
             if (res.status >= 200 && res.status < 300) {
               return Promise.resolve({ data: json });

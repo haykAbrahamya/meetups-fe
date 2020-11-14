@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import * as S from './RegistrationForm.styles'
 import { StrengthChecker } from '../../../../components/StrengthChecker'
 
-export const RegistrationForm = ({ register, error }) => {
+export const RegistrationForm = ({ register, error, loading }) => {
   const [formData, setFormData] = useState({
     fullname: '',
     username: '',
@@ -171,7 +171,7 @@ export const RegistrationForm = ({ register, error }) => {
       <S.TermsAndConditions>
         Գրանցվելով համաձայնվում եմ <span>Օրենքներին</span>
       </S.TermsAndConditions>
-      <S.RegisterButton onClick={submitForm}>Գրանցվել</S.RegisterButton>
+      <S.RegisterButton onClick={submitForm} loading={loading}>Գրանցվել</S.RegisterButton>
     </S.RegistrationForm>  
   )
 }
