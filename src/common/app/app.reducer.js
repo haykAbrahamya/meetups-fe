@@ -6,7 +6,8 @@ const initialState = {
   dimensions: {
     width: window.innerWidth,
     height: window.innerHeight
-  }
+  },
+  loading: false
 }
 
 export const app = (state = initialState, action) => {
@@ -25,6 +26,11 @@ export const app = (state = initialState, action) => {
       return {
         ...state,
         dimensions: action.dimensions
+      }
+    case APP_TYPES.SET_LOADING:
+      return {
+        ...state,
+        loading: action.loading
       }
     default:
       return state

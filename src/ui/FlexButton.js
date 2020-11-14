@@ -1,15 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { Loader } from './Loader'
+import cx from '../helpers/cx'
 
 export const FlexButton = (props) => {
   const {
-    children
+    children,
+    loading,
+    disabled,
+    className
   } = props
 
   return (
-    <Button { ...props }>
-      { children }
+    <Button { ...props } className={cx({ [className]: className, disabled })}>
+      {
+        loading
+          ? <Loader />
+          : children
+      }
     </Button>
   )
 }
@@ -29,5 +38,14 @@ const Button = styled.div`
 
   &:hover {
     background: #7E5EFD;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+     background: #5E36FF;
+    }
   }
 `
