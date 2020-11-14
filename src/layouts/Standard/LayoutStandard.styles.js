@@ -8,6 +8,10 @@ export const LayoutStandard = styled.div`
   overflow-y: hidden;
   background: #EEE;
 
+  &.loading {
+    filter: blur(5px);
+  }
+
   .StandardLayoutHeader {
     position: sticky;
     z-index: 10;
@@ -55,4 +59,15 @@ export const LayoutContent = styled.div`
   width: 100%;
   height: 100%;
   margin-bottom: 120px;
+`
+
+export const LoaderContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 19, 29, 0.05);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

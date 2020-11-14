@@ -24,7 +24,7 @@ export const SearchUsersPageContainer = styled.div`
   }
 
   @media (min-width: 1280px) {
-    padding: 50px;
+    padding: 50px 50px 50px 60px;
   }
 `
 

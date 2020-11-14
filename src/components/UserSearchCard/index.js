@@ -8,10 +8,11 @@ import {
 } from '../../common/network/network.actions'
 
 
-const mapStateToProps = ({ app, network }) => ({
+const mapStateToProps = ({ app, network, user }) => ({
   isMobile: app.dimensions.width < 768,
   followers: network.followers,
-  following: network.following
+  following: network.following,
+  userId: user.userData.id
 })
 
 const mapDispatchToProps = {

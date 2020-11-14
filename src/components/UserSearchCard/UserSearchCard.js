@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 import * as S from './UserSearchCard.styles'
 import { Icon, GLYPHS } from '../Icon'
 import cx from '../../helpers/cx'
+import { Loader } from '../../ui'
 
 export const UserSearchCard = ({
   user,
+  userId,
   isMobile,
   following,
   followUser,
   unfollowUser
 }) => {
+  const [loading, setLoading] = useState(false)
+
   const [firstname, lastname] = user.fullname.split(' ')
   const counts = [
     {
@@ -36,14 +40,19 @@ export const UserSearchCard = ({
 
 
   const follow = following && following.find(_ => _.user.id === user.id)
-  const followingHandler = () => {
+  const followingHandler = async () => {
+    setLoading(true)
+
     if (follow) {
-      unfollowUser(user.id)
+      await unfollowUser(user.id)
     } else {
-      followUser(user.id)
+      await followUser(user.id)
     }
+
+    setLoading(false)
   }
 
+  const followButtonDisabled = userId === user.id
 
   return (
     <S.UserSearchCardContainer>
@@ -78,14 +87,19 @@ export const UserSearchCard = ({
                   />
                 </S.IconContainer>
                 <S.Count>
-                  { item.count || 17 }
+                  { item.count || 0}
                 </S.Count>
               </S.CountItem>  
             )
           })
         }
       </S.CountsContainer>
-      <S.FollowButton className={cx({ follow })} onClick={followingHandler}>
+      <S.FollowButton
+        className={cx({ follow})}
+        onClick={!followButtonDisabled ? followingHandler : null}
+        disabled={followButtonDisabled || loading }
+        loading={loading}
+      >
         {
           follow
             ? 'Հետևորդ'

@@ -5,7 +5,8 @@ import { LoginForm as Self } from './LoginForm';
 import { login } from './LoginForm.actions';
 
 const mapStateToProps = ({ loginForm }) => ({
-  error: loginForm.error
+  error: loginForm.error,
+  loading: loginForm.loading
 })
 
 const mapDispatchToProps = {
