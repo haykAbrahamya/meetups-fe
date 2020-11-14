@@ -1,4 +1,5 @@
 import { SEARCH_USERS_TYPES } from './SearchUsersPage.types'
+import { NETWORK_TYPES } from '../../common/network/network.types'
 
 const initialState = {
   filterOpened: false,
@@ -7,6 +8,8 @@ const initialState = {
 }
 
 export const searchUsersPage = (state = initialState, action) => {
+  let userIndex, user
+
   switch (action.type) {
     case SEARCH_USERS_TYPES.TOGGLE_FILTER:
       return {
@@ -22,6 +25,36 @@ export const searchUsersPage = (state = initialState, action) => {
       return {
         ...state,
         filters: {}
+      }
+    case NETWORK_TYPES.FOLLOW_USER:
+      userIndex = state.results.findIndex(_ => _.id === action.following.user.id)
+      user = state.results[userIndex]
+
+      return {
+        ...state,
+        results: [
+          ...state.results.slice(0, userIndex),
+          {
+            ...user,
+            followersCount: user.followersCount + 1
+          },
+          ...state.results.slice(userIndex + 1)
+        ]
+      }
+    case NETWORK_TYPES.UNFOLLOW_USER:
+      userIndex = state.results.findIndex(_ => _.id === action.userId)
+      user = state.results[userIndex]
+
+      return {
+        ...state,
+        results: [
+          ...state.results.slice(0, userIndex),
+          {
+            ...user,
+            followersCount: user.followersCount + - 1
+          },
+          ...state.results.slice(userIndex + 1)
+        ]
       }
     case SEARCH_USERS_TYPES.UPDATE_FILTER:
       return {

@@ -90,4 +90,13 @@ export const FollowButton = styled(FlexButton)`
   font-size: 13px;
   margin-top: 32px;
   border-radius: 7px;
+  min-height: 16px;
+
+  &.follow {
+    background: #64C5B4;
+
+    &:hover {
+      background: #70D7C5;
+    }
+  }
 `
