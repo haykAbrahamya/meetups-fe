@@ -2,6 +2,8 @@ import { SEARCH_USERS_TYPES, sortTypes } from './SearchUsersPage.types'
 import { getQueryString } from '../../lib/getQueryString'
 import { browserHistory } from '../../system/history'
 import { FetchApi } from '../../helpers/FetchApi'
+import { setLoading } from '../../common/app/app.actions'
+
 
 export const toggleFilter = () => ({
   type: SEARCH_USERS_TYPES.TOGGLE_FILTER
@@ -34,7 +36,8 @@ export const loadUsers = (filters) => async (dispatch, getState) => {
   const filtersString = getQueryString(searchFilters)
 
   try {
-    const { data } = await FetchApi.get(`user${filtersString}`)
+    dispatch(setLoading(true))
+    const { data } = await FetchApi.get(`user/search${filtersString}`)
 
     dispatch({
       type: SEARCH_USERS_TYPES.LOAD_USERS,
@@ -43,6 +46,8 @@ export const loadUsers = (filters) => async (dispatch, getState) => {
   } catch (e) {
     alert('error')
     console.log('error', e)
+  } finally {
+    dispatch(setLoading(false))
   }
 }
 
