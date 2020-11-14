@@ -6,6 +6,8 @@ import { HeaderUnAuth } from './HeaderUnAuth'
 import { HeaderAuth } from './HeaderAuth'
 import { Sidebar } from './Sidebar'
 import { BottomNavBar } from './BottomNavBar'
+import { AppLoader } from '../../ui'
+import cx from '../../helpers/cx'
 
 
 export const LayoutStandard = ({
@@ -14,11 +16,22 @@ export const LayoutStandard = ({
   isMobile,
   className = '',
   RightPart,
-  match
+  match,
+  loading
 }) => {
 
   return (
-    <S.LayoutStandard isAuth={isAuth} className={`StandardLayout ${className}`}>
+    <>
+    {
+      loading &&  
+        <S.LoaderContainer>
+          <AppLoader />
+        </S.LoaderContainer>
+    }
+    <S.LayoutStandard
+      isAuth={isAuth}
+      className={cx({ StandardLayout: true, [className]: true, loading })}
+    >
       {
         isAuth && !isMobile &&
           <Sidebar />
@@ -50,5 +63,6 @@ export const LayoutStandard = ({
           <BottomNavBar />
       }
     </S.LayoutStandard>
+    </>
   )
 }

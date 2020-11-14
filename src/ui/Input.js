@@ -15,7 +15,7 @@ export const Input = (props) => {
       {
         leftPart
       }
-      <InputStyled { ...props } spellcheck='false'>
+      <InputStyled { ...props } spellcheck='false' autofill='false'>
         { children }
       </InputStyled>
       {
@@ -38,6 +38,13 @@ const InputStyled = styled.input`
   border: 2px solid ${p => p.error ? '#FF364E' : 'transparent'};
   outline: none;
   font-family: sans-serif;
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover, 
+  &:-webkit-autofill:focus, 
+  &:-webkit-autofill:active  {
+      -webkit-box-shadow: 0 0 0 30px #e7e7e7 inset !important;
+  }
+
   ::placeholder {
     color: #7D7A86;
   }

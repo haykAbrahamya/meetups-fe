@@ -79,7 +79,7 @@ export const SearchUsersPage = ({
       <S.SearchUsersPageContainer className='PageContainer'>
         <S.Results>
           {
-            !!results.length && results.map((user, ind) => {
+            !!results && results.map((user, ind) => {
               return (
                 <S.SearchCardContainer key={ind}>
                   <UserSearchCard user={user}/>

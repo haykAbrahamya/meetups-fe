@@ -16,15 +16,16 @@ export const initApp = () => async dispatch => {
   })
 }
 
-export const toggleSidebar = () => async dispatch => {
-  dispatch({
-    type: APP_TYPES.TOGGLE_SIDEBAR
-  })
-}
+export const toggleSidebar = () => ({
+  type: APP_TYPES.TOGGLE_SIDEBAR
+})
 
-export const setWindowDimensions = (dimensions) => async dispatch => {
-  dispatch({
-    type: APP_TYPES.SET_WINDOW_DIMENSIONS,
-    dimensions
-  })
-}
+export const setWindowDimensions = (dimensions) => ({
+  type: APP_TYPES.SET_WINDOW_DIMENSIONS,
+  dimensions
+})
+
+export const setLoading = (loading) => ({
+  type: APP_TYPES.SET_LOADING,
+  loading
+})

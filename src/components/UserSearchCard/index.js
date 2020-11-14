@@ -2,9 +2,22 @@ import { connect } from 'react-redux'
 
 
 import { UserSearchCard as Self } from './UserSearchCard'
+import {
+  followUser,
+  unfollowUser
+} from '../../common/network/network.actions'
 
-const mapStateToProps = ({ app }) => ({
-  isMobile: app.dimensions.width < 768
+
+const mapStateToProps = ({ app, network, user }) => ({
+  isMobile: app.dimensions.width < 768,
+  followers: network.followers,
+  following: network.following,
+  userId: user.userData.id
 })
 
-export const UserSearchCard = connect(mapStateToProps)(Self)
+const mapDispatchToProps = {
+  followUser,
+  unfollowUser
+}
+
+export const UserSearchCard = connect(mapStateToProps, mapDispatchToProps)(Self)
