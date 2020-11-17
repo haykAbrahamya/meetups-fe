@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import * as S from './LoginForm.styles'
-import { Input, Loader } from '../../../../ui'
+import { Input } from '../../../../ui'
 
 export const LoginForm = ({ login, error, loading }) => {
   const [formData, setFormData] = useState({

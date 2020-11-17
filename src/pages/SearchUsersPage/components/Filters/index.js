@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { Filters as Self } from './Filters'
 import {
   toggleFilter,
-  updateFilter
+  updateFilter,
+  loadUsers
 } from '../../SearchUsersPage.actions'
 
 
@@ -15,7 +16,8 @@ const mapStateToProps = ({ searchUsersPage, app }) => ({
 
 const mapDispatchToProps = {
   toggleFilter,
-  updateFilter
+  updateFilter,
+  loadUsers
 }
 
 export const Filters = connect(mapStateToProps, mapDispatchToProps)(Self)
