@@ -13,6 +13,7 @@ import { LoginPage } from '../pages/LoginPage'
 import { SearchUsersPage } from '../pages/SearchUsersPage'
 import { ProtectedRoute } from './ProtectedRoute'
 import { NotFoundPage } from '../pages/NotFoundPage'
+import { MeetupsPage } from '../pages/MeetupsPage'
 
 
 export const Routes = ({ isAuth }) => {
@@ -20,13 +21,13 @@ export const Routes = ({ isAuth }) => {
     <BrowserRouter>
       <Switch>
         <ProtectedRoute exact path='/test' component={TestPage} />
-        <ProtectedRoute exact path='/meetups' component={TestPage} />
         <ProtectedRoute exact path='/last-meetups' component={TestPage} />
         <ProtectedRoute exact path='/notifications' component={TestPage} />
         <ProtectedRoute exact path='/profile' component={TestPage} />
         <ProtectedRoute exact path='/search' component={SearchUsersPage} />
         <ProtectedRoute exact path='/settings' component={TestPage} />
-
+        <ProtectedRoute path='/meetups/:meetupId' component={MeetupsPage} />
+        <ProtectedRoute path='/meetups' component={MeetupsPage} />
         {
           isAuth &&
             <Redirect from='/login' to='/' />

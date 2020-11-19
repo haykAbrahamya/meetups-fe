@@ -85,7 +85,7 @@ export const Sidebar = ({ sidebarOpened, toggleSidebar, isDesktop }) => {
         <S.SidebarItems>
           {
             items.map(item => {
-              const isItemActive = pathname === item.path
+              const isItemActive = pathname.startsWith(item.path)
 
               return (
                 <S.SidebarItem 
