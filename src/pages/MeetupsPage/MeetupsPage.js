@@ -52,7 +52,7 @@ export const MeetupsPage = (props) => {
     const roomID = props.match.params.roomID;
 
     useEffect(() => {
-        socketRef.current = io.connect("127.0.0.1:5050");
+        socketRef.current = io.connect("144.91.108.130:5050");
         navigator.mediaDevices.getUserMedia({ video: videoConstraints, audio: true, video: true }).then(stream => {
             userVideo.current.srcObject = stream;
             socketRef.current.emit("join room", roomID);
