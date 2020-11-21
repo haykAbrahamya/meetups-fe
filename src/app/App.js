@@ -50,7 +50,8 @@ export const App = ({
   }, [
     userId,
     isAuth,
-    initSockets
+    initSockets,
+    closeSockets
   ])  
 
   return (
