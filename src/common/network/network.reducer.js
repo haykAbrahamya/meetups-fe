@@ -25,6 +25,16 @@ export const network = (state = initialState, action) => {
         ...state,
         following: state.following.filter(_ => _.user.id !== action.userId)
       }
+    case NETWORK_TYPES.SOCKET_FOLLOW_USER:
+      return {
+        ...state,
+        followers: state.followers.concat({ id: action.followingId, follower: action.user })
+      }
+    case NETWORK_TYPES.SOCKET_UNFOLLOW_USER:
+      return {
+        ...state,
+        followers: state.followers.filter(_ => _.follower.id !== action.userId)
+      }
     default:
       return state
   }

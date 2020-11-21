@@ -7,12 +7,12 @@ import {
 } from 'react-router-dom'
 
 
-import { TestPage } from '../pages/TestPage'
-import { RegistrationPage } from '../pages/RegistrationPage'
-import { LoginPage } from '../pages/LoginPage'
-import { SearchUsersPage } from '../pages/SearchUsersPage'
+import { TestPage } from '../../pages/TestPage'
+import { RegistrationPage } from '../../pages/RegistrationPage'
+import { LoginPage } from '../../pages/LoginPage'
+import { SearchUsersPage } from '../../pages/SearchUsersPage'
 import { ProtectedRoute } from './ProtectedRoute'
-import { NotFoundPage } from '../pages/NotFoundPage'
+import { NotFoundPage } from '../../pages/NotFoundPage'
 
 
 export const Routes = ({ isAuth }) => {

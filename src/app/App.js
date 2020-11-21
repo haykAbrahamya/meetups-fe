@@ -1,8 +1,10 @@
 import React, { useEffect, useCallback } from 'react'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
-import { Routes } from '../routes'
-import { initSocket, closeSocket } from '../socket'
+import { Routes } from './routes'
+import { NotificationService } from '../components/NotificationService'
 
 
 export const App = ({
@@ -10,6 +12,9 @@ export const App = ({
   userId,
   initApp,
   initialized,
+  initSockets,
+  closeSockets,
+  socketInitialized,
   setWindowDimensions
 }) => {
   const handleResize = useCallback(() => {
@@ -36,19 +41,27 @@ export const App = ({
 
   useEffect(() => {
     if (isAuth) {
-      initSocket(userId)
+      initSockets(userId)
 
       return () => {
-        closeSocket(userId)
+        closeSockets(userId)
       }
     }
   }, [
     userId,
-    isAuth
-  ])
+    isAuth,
+    initSockets
+  ])  
 
   return (
     initialized &&
-      <Routes />
+      <>
+        <Routes />
+        <ToastContainer />
+        { 
+          socketInitialized &&
+            <NotificationService />
+        }
+      </>
   )
 }

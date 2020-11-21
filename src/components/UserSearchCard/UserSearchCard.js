@@ -37,8 +37,6 @@ export const UserSearchCard = ({
     }
   ]
 
-
-  const follow = following && following.find(_ => _.user.id === user.id)
   const followingHandler = async () => {
     setLoading(true)
 
@@ -52,7 +50,7 @@ export const UserSearchCard = ({
   }
 
   const followButtonDisabled = userId === user.id
-
+  const follow = following && following.find(_ => _.user.id === user.id)
   return (
     <S.UserSearchCardContainer>
       <S.Avatar src={'images/user.jpg'} />

@@ -40,3 +40,20 @@ export const unfollowUser = (userId) => async dispatch => {
     console.log('err', e)
   }
 }
+
+export const socketFollow = (user, followingId) => async (dispatch, getState) => {
+  dispatch({
+    type: NETWORK_TYPES.SOCKET_FOLLOW_USER,
+    user,
+    followingId,
+    myId: getState().user.userData.id
+  })
+}
+
+export const socketUnfollow = (userId) => async (dispatch, getState) => {
+  dispatch({
+    type: NETWORK_TYPES.SOCKET_UNFOLLOW_USER,
+    userId,
+    myId: getState().user.userData.id
+  })
+}
