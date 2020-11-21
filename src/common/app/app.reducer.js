@@ -3,6 +3,7 @@ import { APP_TYPES } from './app.types'
 const initialState = {
   sidebarOpened: true,
   initialized: false,
+  socketInitialized: false,
   dimensions: {
     width: window.innerWidth,
     height: window.innerHeight
@@ -16,6 +17,11 @@ export const app = (state = initialState, action) => {
       return {
         ...state,
         initialized: true
+      }
+    case APP_TYPES.SOCKET_INITIALIZED:
+      return {
+        ...state,
+        socketInitialized: !state.socketInitialized
       }
     case APP_TYPES.TOGGLE_SIDEBAR:
       return {

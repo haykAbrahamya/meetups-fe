@@ -51,10 +51,44 @@ export const searchUsersPage = (state = initialState, action) => {
           ...state.results.slice(0, userIndex),
           {
             ...user,
-            followersCount: user.followersCount + - 1
+            followersCount: user.followersCount - 1
           },
           ...state.results.slice(userIndex + 1)
         ]
+      }
+    case NETWORK_TYPES.SOCKET_FOLLOW_USER:
+      userIndex = state.results.findIndex(_ => _.id === action.myId)
+      user = state.results[userIndex]
+
+      return {
+        ...state,
+        results: !!user
+          ? [
+              ...state.results.slice(0, userIndex),
+              {
+                ...user,
+                followersCount: user.followersCount + 1
+              },
+              ...state.results.slice(userIndex + 1)
+            ]
+          : state.results
+      }
+    case NETWORK_TYPES.SOCKET_UNFOLLOW_USER:
+      userIndex = state.results.findIndex(_ => _.id === action.myId)
+      user = state.results[userIndex]
+
+      return {
+        ...state,
+        results: !!user
+          ? [
+              ...state.results.slice(0, userIndex),
+              {
+                ...user,
+                followersCount: user.followersCount - 1
+              },
+              ...state.results.slice(userIndex + 1)
+            ]
+          : state.results
       }
     case SEARCH_USERS_TYPES.UPDATE_FILTER:
       return {
