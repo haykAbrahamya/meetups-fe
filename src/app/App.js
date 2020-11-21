@@ -39,7 +39,6 @@ export const App = ({
       initSocket(userId)
 
       return () => {
-        console.log('here')
         closeSocket(userId)
       }
     }

@@ -23,7 +23,6 @@ export const FlexButton = (props) => {
   )
 }
 
-
 const Button = styled.div`
   display: flex;
   justify-content: center;
