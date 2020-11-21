@@ -1,6 +1,7 @@
 import { APP_TYPES } from './app.types'
 import { storeUserData } from '../user/user.actions.js'
 import { FetchApi } from '../../helpers/FetchApi'
+import { initSocket, closeSocket } from '../../socket'
 
 
 export const initApp = () => async dispatch => {
@@ -29,3 +30,17 @@ export const setLoading = (loading) => ({
   type: APP_TYPES.SET_LOADING,
   loading
 })
+
+export const initSockets = (userId) => dispatch => {
+  initSocket(userId)
+  dispatch({
+    type: APP_TYPES.SOCKET_INITIALIZED
+  })
+}
+
+export const closeSockets = (userId) => dispatch => {
+  closeSocket(userId)
+  dispatch({
+    type: APP_TYPES.SOCKET_INITIALIZED
+  })
+}

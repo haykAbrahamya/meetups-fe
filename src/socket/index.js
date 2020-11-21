@@ -10,7 +10,7 @@ export const initSocket = (userId) => {
 }
 
 export const subscribeSocket = (type, cb) => {
-  socket.on(type, props => cb(props))
+  socket.on(type, props => cb({ notification: props }))
 }
 
 export const sendMessage = (type, message) => {
