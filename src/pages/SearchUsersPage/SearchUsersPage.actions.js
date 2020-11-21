@@ -1,4 +1,4 @@
-import { SEARCH_USERS_TYPES, sortTypes } from './SearchUsersPage.types'
+import { SEARCH_USERS_TYPES, sortFields } from './SearchUsersPage.types'
 import { getQueryString } from '../../lib/getQueryString'
 import { browserHistory } from '../../system/history'
 import { FetchApi } from '../../helpers/FetchApi'
@@ -55,8 +55,8 @@ export const updateFilterFromQuery = (query, match) => async (dispatch, getState
   let filters = {}
 
   Object.keys(query).forEach(key => {
-    if (key === 'sortType') {
-      filters.sortType = sortTypes[query[key]]
+    if (key === 'sortField') {
+      filters.sortField = sortFields[query[key]]
     } else {
       filters[key] = query[key]
     }

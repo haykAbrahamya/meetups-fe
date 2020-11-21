@@ -2,10 +2,12 @@ import React, { useEffect, useCallback } from 'react'
 
 
 import { Routes } from '../routes'
+import { initSocket, closeSocket } from '../socket'
 
 
 export const App = ({
   isAuth,
+  userId,
   initApp,
   initialized,
   setWindowDimensions
@@ -30,6 +32,19 @@ export const App = ({
     initApp,
     handleResize,
     setWindowDimensions
+  ])
+
+  useEffect(() => {
+    if (isAuth) {
+      initSocket(userId)
+
+      return () => {
+        closeSocket(userId)
+      }
+    }
+  }, [
+    userId,
+    isAuth
   ])
 
   return (
