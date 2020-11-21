@@ -5,7 +5,7 @@ export const SEARCH_USERS_TYPES = {
   LOAD_USERS: 'SEARCH_USERS_TYPES.LOAD_USERS'
 }
 
-export const sortTypes = {
+export const sortFields = {
   activity: 'activity',
   followersCount: 'followersCount',
   rating: 'rating'

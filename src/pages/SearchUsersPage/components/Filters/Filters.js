@@ -5,29 +5,44 @@ import * as S from './Filters.styles'
 import { RadioButton } from '../../../../ui'
 import { Icon, GLYPHS } from '../../../../components/Icon'
 import cx from '../../../../helpers/cx'
-import { sortTypes } from '../../SearchUsersPage.types'
+import { sortFields } from '../../SearchUsersPage.types'
 
 
-export const Filters = ({ viewportWidth, toggleFilter, updateFilter, filters }) => {
+export const Filters = ({
+  viewportWidth,
+  toggleFilter,
+  updateFilter,
+  filters,
+  loadUsers
+}) => {
   const isDesktop = viewportWidth >= 1280
 
-  const sortTypesOptions = [
+  const sortFieldsOptions = [
     {
       id: 1,
-      name: sortTypes.rating,
+      name: sortFields.rating,
       title: 'Գնահատականի'
     },
     {
       id: 2,
-      name: sortTypes.activity,
+      name: sortFields.activity,
       title: 'Ակտիվության'
     },
     {
       id: 3,
-      name: sortTypes.followersCount,
+      name: sortFields.followersCount,
       title: 'Հետևորդների քանակի'
     }
   ]
+
+  const handleSelectSortType = (sortField) => {
+    updateFilter({ sortField: filters.sortField === sortField ? null : sortField})
+    loadUsers()
+
+    if (!isDesktop) {
+      toggleFilter()
+    }
+  }
 
   return (
     <S.FiltersContainer>
@@ -58,14 +73,14 @@ export const Filters = ({ viewportWidth, toggleFilter, updateFilter, filters }) 
           Սորտավորել ըստ
         </S.FilterSectionTitle>
         {
-          sortTypesOptions.map(option => {
-            const selected = option.name === filters.sortType
+          sortFieldsOptions.map(option => {
+            const selected = option.name === filters.sortField
 
             return (
               <S.RadioButtonContainer
                 key={option.id}
                 className={cx({ selected })}
-                onClick={() => updateFilter({ sortType: option.name })}
+                onClick={() => handleSelectSortType(option.name)}
               >
                 <RadioButton selected={selected}/>
                 <S.RadioButtonTitle>

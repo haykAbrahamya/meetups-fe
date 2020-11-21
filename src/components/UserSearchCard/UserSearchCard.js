@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import * as S from './UserSearchCard.styles'
 import { Icon, GLYPHS } from '../Icon'
 import cx from '../../helpers/cx'
-import { Loader } from '../../ui'
 
 export const UserSearchCard = ({
   user,
