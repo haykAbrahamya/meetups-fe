@@ -9,6 +9,7 @@ import {
 
 const mapStateToProps = ({ user, app }) => ({
   isAuth: user.isAuth,
+  userId: user.userData.id,
   initialized: app.initialized
 })
 
