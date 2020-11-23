@@ -8,7 +8,12 @@ import { GLYPHS } from '../../../components/Icon'
 import cx from '../../../helpers/cx'
 
 
-export const Sidebar = ({ sidebarOpened, toggleSidebar, isDesktop }) => {
+export const Sidebar = ({
+  sidebarOpened,
+  toggleSidebar,
+  username,
+  isDesktop
+}) => {
   const [pathname, setPathname] = useState('')
   const location = useLocation()
   const history = useHistory()
@@ -25,7 +30,7 @@ export const Sidebar = ({ sidebarOpened, toggleSidebar, isDesktop }) => {
       id: 1,
       title: 'Գլխավոր',
       icon: GLYPHS.profile,
-      path: '/profile'
+      path: `/profile/${username}`
     },
     {
       id: 2,

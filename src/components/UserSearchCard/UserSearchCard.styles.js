@@ -1,12 +1,15 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 
 import { FlexButton } from '../../ui'
 import { Icon } from '../Icon'
 
-export const UserSearchCardContainer = styled.div`
+export const UserSearchCardContainer = styled(Link)`
   display: flex;
   align-items: center;
+  text-decoration: none;
+  outline: none;
   padding: 30px 20px 20px;
   border-radius: 20px;
   background: #E9E9E9;
@@ -38,6 +41,7 @@ export const NamesContainer = styled.div`
 
 export const FullName = styled.div`
   font-weight: bold;
+  color: #000;
   font-size: 20px;
   margin-top: 15px;
   text-align: center;
@@ -62,6 +66,7 @@ export const CountItem = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 40px;
+  color: #000;
   justify-content: center;
   align-items: center;
 
