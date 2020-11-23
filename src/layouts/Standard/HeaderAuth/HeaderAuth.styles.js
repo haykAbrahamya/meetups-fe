@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 
-import { Input } from '../../../ui'
 import { Icon } from '../../../components/Icon'
 
 export const HeaderAuthContainer = styled.div`
@@ -54,17 +53,13 @@ export const Logo = styled.div`
   }
 `
 
-export const SearchInput = styled(Input)`
-  padding: 14px 18px 14px 42px;
-  width: calc(100% - 100px);
+export const LogoContainer = styled.div`
+  display: flex;
+  margin-right: auto;
+`
 
-  @media (min-width: 768px) {
-    width: 370px;
-  }
-
-  @media (min-width: 1280px) {
-    width: 527px;
-  }
+export const SearchInput = styled.div`
+  margin-right: ${p => p.sidebarOpened ? 'unset' : 'auto'};
 `
 
 export const SearchInputIcon = styled(Icon)`

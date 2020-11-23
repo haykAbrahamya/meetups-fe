@@ -81,7 +81,7 @@ export const SearchUsersPage = ({
           {
             !!results && results.map((user, ind) => {
               return (
-                <S.SearchCardContainer key={ind}>
+                <S.SearchCardContainer key={user.id}>
                   <UserSearchCard user={user}/>
                 </S.SearchCardContainer>
               )

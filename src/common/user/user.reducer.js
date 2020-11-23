@@ -2,8 +2,7 @@ import { USER_TYPES } from './user.types'
 
 const initialState = {
   isAuth: false,
-  userData: {},
-  profileData: {}
+  userData: {}
 }
 
 export const user = (state = initialState, action) => {

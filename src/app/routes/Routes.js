@@ -13,9 +13,10 @@ import { LoginPage } from '../../pages/LoginPage'
 import { SearchUsersPage } from '../../pages/SearchUsersPage'
 import { ProtectedRoute } from './ProtectedRoute'
 import { NotFoundPage } from '../../pages/NotFoundPage'
+import { ProfilePage } from '../../pages/ProfilePage'
 
 
-export const Routes = ({ isAuth }) => {
+export const Routes = ({ isAuth, username }) => {
   return (
     <BrowserRouter>
       <Switch>
@@ -23,7 +24,7 @@ export const Routes = ({ isAuth }) => {
         <ProtectedRoute exact path='/meetups' component={TestPage} />
         <ProtectedRoute exact path='/last-meetups' component={TestPage} />
         <ProtectedRoute exact path='/notifications' component={TestPage} />
-        <ProtectedRoute exact path='/profile' component={TestPage} />
+        <ProtectedRoute exact path='/profile/:username' component={ProfilePage} />
         <ProtectedRoute exact path='/search' component={SearchUsersPage} />
         <ProtectedRoute exact path='/settings' component={TestPage} />
 
@@ -35,7 +36,7 @@ export const Routes = ({ isAuth }) => {
           isAuth &&
             <Redirect from='/register' to='/' />
         }
-        <Redirect exact from='/' to='/profile' />
+        <Redirect exact from='/' to={`/profile/${username}`} />
         <Route exact path='/register' component={RegistrationPage} />
         <Route exact path='/login' component={LoginPage} />
         <Route path='*' component={NotFoundPage} />
