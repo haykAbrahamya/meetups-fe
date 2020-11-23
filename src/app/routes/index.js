@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 
 import { Routes as Self } from './Routes'
 
-const mapStateToProps = (state) => ({
-  isAuth: state.user.isAuth
+const mapStateToProps = ({ user }) => ({
+  isAuth: user.isAuth,
+  username: user.userData.username
 })
 
 export const Routes = connect(mapStateToProps)(Self)

@@ -24,14 +24,16 @@ export const HeaderAuth = ({
     <S.HeaderAuthContainer>
       {
         showLogoContainer &&
-          <>
+          <S.LogoContainer>
             <S.Logo />
             <S.ProjectName>
               MEET UP
             </S.ProjectName>
-          </>
+          </S.LogoContainer>
       }
-      <UsersSearchInput />
+      <S.SearchInput sidebarOpened={sidebarOpened}>
+        <UsersSearchInput />
+      </S.SearchInput>
       {
         !isDesktop && isSearchPage &&
           <S.ToggleFilterButton onClick={toggleFilter}>

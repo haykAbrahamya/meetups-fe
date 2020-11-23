@@ -37,7 +37,8 @@ export const UserSearchCard = ({
     }
   ]
 
-  const followingHandler = async () => {
+  const followingHandler = async (e) => {
+    e.preventDefault()
     setLoading(true)
 
     if (follow) {
@@ -51,9 +52,10 @@ export const UserSearchCard = ({
 
   const followButtonDisabled = userId === user.id
   const follow = following && following.find(_ => _.user.id === user.id)
+
   return (
-    <S.UserSearchCardContainer>
-      <S.Avatar src={'images/user.jpg'} />
+    <S.UserSearchCardContainer to={`profile/${user.username}`}>
+      <S.Avatar src={'/images/user.jpg'} />
       <S.NamesContainer>
         <S.FullName>
           { firstname }
@@ -93,7 +95,7 @@ export const UserSearchCard = ({
       </S.CountsContainer>
       <S.FollowButton
         className={cx({ follow})}
-        onClick={!followButtonDisabled ? followingHandler : null}
+        onClick={e => !followButtonDisabled ? followingHandler(e) : null}
         disabled={followButtonDisabled || loading }
         loading={loading}
       >
