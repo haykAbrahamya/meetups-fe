@@ -8,10 +8,12 @@ export const BottomNavBarContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 30px 30px;
+  padding: 25px 30px 30px;
+  background: #eee;
   height: 20px;
   position: fixed;
   bottom: 0;
+  z-index: 2;
   width: calc(100% - 60px);
 `
 

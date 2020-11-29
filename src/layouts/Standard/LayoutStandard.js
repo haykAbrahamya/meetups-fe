@@ -3,7 +3,6 @@ import React from 'react'
 
 import * as S from './LayoutStandard.styles'
 import { HeaderUnAuth } from './HeaderUnAuth'
-import { HeaderAuth } from './HeaderAuth'
 import { Sidebar } from './Sidebar'
 import { BottomNavBar } from './BottomNavBar'
 import { AppLoader } from '../../ui'
@@ -40,7 +39,6 @@ export const LayoutStandard = ({
         {
           isAuth
             ? <div className='StandardLayoutHeader'>
-                <HeaderAuth />
               </div>
             : <div className='StandardLayoutHeader'>
                 <HeaderUnAuth />

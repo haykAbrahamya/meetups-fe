@@ -12,8 +12,11 @@ export const FlexButton = (props) => {
     className
   } = props
 
+  let propsToPass = { ...props }
+  delete propsToPass.loading
+
   return (
-    <Button { ...props } className={cx({ [className]: className, disabled })}>
+    <Button { ...propsToPass } className={cx({ [className]: className, disabled })}>
       {
         loading
           ? <Loader />

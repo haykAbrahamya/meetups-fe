@@ -7,6 +7,7 @@ export const FiltersContainer = styled.div`
   flex-direction: column;
 
   @media (min-width: 768px) {
+    position: fixed;
     padding: 40px;
   }
 `

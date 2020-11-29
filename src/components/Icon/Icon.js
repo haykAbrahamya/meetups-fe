@@ -17,7 +17,11 @@ const GLYPHS = {
   searchInput: '/images/icons/searchInput.svg',
   close: '/images/icons/close.svg',
   filter: '/images/icons/filter.svg',
-  rectangle: '/images/icons/rectangle.svg'
+  rectangle: '/images/icons/rectangle.svg',
+  timer: '/images/icons/timer.svg',
+  calendar: '/images/icons/calendar.svg',
+  edit: '/images/icons/edit.svg',
+  delete: '/images/icons/delete.svg'
 }
 
 const Icon = (props)=> {

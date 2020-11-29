@@ -103,15 +103,20 @@ export const PlusIcon = styled.div`
   background: url('/images/icons/plus.svg')
 `
 
+export const SidebarWrapper = styled.div`
+  position: fixed;
+  height: 100%;
+  background: #E9E9E9;
+`
+
 export const SidebarContainer = styled.div`
   display: flex;
-  background: #E9E9E9;
-  width: 100px;
-  height: 100%;
+  min-width: 100px;
   flex-direction: column;
+  height: 100%;
 
   &.opened {
-    width: 300px;
+    min-width: 300px;
   }
 
   &:not(.opened) {

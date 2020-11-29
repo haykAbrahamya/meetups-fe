@@ -67,63 +67,68 @@ export const Sidebar = ({
 
   return (
     <S.SidebarContainer className={cx({ opened: isSidebarOpened})}>
-      <S.SidebarHeader>
-        {
-          isDesktop &&  
-            <S.SidebarToggler onClick={toggleSidebar} />
-        }
-        {
-          !isDesktop &&
-            <S.Logo />
-        }
-        {
-          isSidebarOpened &&
-            <>
+      <S.SidebarWrapper>
+        <S.SidebarHeader>
+          {
+            isDesktop &&  
+              <S.SidebarToggler onClick={toggleSidebar} />
+          }
+          {
+            !isDesktop &&
               <S.Logo />
-              <S.ProjectName>
-                MEET UP
-              </S.ProjectName>
-            </>
-        }
-      </S.SidebarHeader>
-      <S.SidebarContent>
-        <S.SidebarItems>
+          }
           {
-            items.map(item => {
-              const isItemActive = pathname === item.path
+            isSidebarOpened &&
+              <>
+                <S.Logo />
+                <S.ProjectName>
+                  MEET UP
+                </S.ProjectName>
+              </>
+          }
+        </S.SidebarHeader>
+        <S.SidebarContent>
+          <S.SidebarItems>
+            {
+              items.map(item => {
+                const isItemActive = pathname === item.path
 
-              return (
-                <S.SidebarItem 
-                  className={isItemActive ? 'active' : ''} 
-                  menuOpened={isSidebarOpened}
-                  onClick={() => changeMenu(item.path)}
-                  key={item.id}
-                >
-                  <S.SidebarItemIcon 
-                    glyph={item.icon}
-                    fill={isItemActive ? '#12131D' : '#B5B2BD'}
-                    width={24}
-                    height={24}
-                  />
-                  {
-                    isSidebarOpened &&
-                      <S.SidebarItemTitle>
-                        { item.title }
-                      </S.SidebarItemTitle>
-                  }
-                </S.SidebarItem>
-              )
-            })  
-          }
-        <S.CreateMeetupButton>
-          {
-            isSidebarOpened
-              ? 'Ստեղծել'
-              : <S.PlusIcon />
-          }
-        </S.CreateMeetupButton>
-        </S.SidebarItems>
-      </S.SidebarContent>
+                return (
+                  <S.SidebarItem 
+                    className={isItemActive ? 'active' : ''} 
+                    menuOpened={isSidebarOpened}
+                    onClick={() => changeMenu(item.path)}
+                    key={item.id}
+                  >
+                    <S.SidebarItemIcon 
+                      glyph={item.icon}
+                      fill={isItemActive ? '#12131D' : '#B5B2BD'}
+                      width={24}
+                      height={24}
+                    />
+                    {
+                      isSidebarOpened &&
+                        <S.SidebarItemTitle>
+                          { item.title }
+                        </S.SidebarItemTitle>
+                    }
+                  </S.SidebarItem>
+                )
+              })  
+            }
+          <S.CreateMeetupButton
+            onClick={() => history.push('/meetups/create')}
+            className='CreateMeetupButton'
+          >
+            {
+              isSidebarOpened
+                ? 'Ստեղծել'
+                : <S.PlusIcon />
+            }
+          </S.CreateMeetupButton>
+          </S.SidebarItems>
+        </S.SidebarContent>
+      </S.SidebarWrapper>
     </S.SidebarContainer>
   )
 }
