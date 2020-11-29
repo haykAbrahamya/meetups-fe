@@ -31,7 +31,7 @@ const InputContainer = styled.div`
 `
 
 const InputStyled = styled.input`
-  width: calc(100% - ${p => p.rightPart ? '55px' : '20px'});
+  width: calc(100% - ${p => p.rightPart ? '55px' : '28px'});
   padding: 14px ${p => p.rightPart ? '45px' : '14px'} 14px 10px;
   background: #e7e7e7;
   border-radius: 5px;
@@ -47,9 +47,6 @@ const InputStyled = styled.input`
 
   ::placeholder {
     color: #7D7A86;
-  }
-  &:focus {
-    border: 2px solid #5E36FF;
   }
   transition: all 0.3s ease;
 

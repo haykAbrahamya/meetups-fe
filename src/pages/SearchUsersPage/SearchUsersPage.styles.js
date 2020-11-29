@@ -28,6 +28,37 @@ export const SearchUsersPageContainer = styled.div`
   }
 `
 
+export const Header = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: #eee;
+  z-index: 10;
+`
+
+export const ToggleFilterButton = styled.div`
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: 20px;
+  position: sticky;
+
+  @media (min-width: 768px) {
+    margin-left: 50px;
+  }
+`
+
+export const SearchInput = styled.div`
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: unset;
+  }
+`
+
 export const FiltersContainer = styled.div`
   transition: all 0.3s ease;
   position: absolute;

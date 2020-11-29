@@ -64,13 +64,12 @@ export const ConnectionCard = styled(Link)`
   }
 
   &:hover {
-    background: #d2c7fd;
+    background: #a4a8a8;
   }
 
   &:last-child {
     margin-bottom: 0px;
   }
-
 `
 
 export const ConnectionContainer = styled.div`

@@ -4,8 +4,10 @@ import qs  from 'qs'
 
 import * as S from './SearchUsersPage.styles'
 import { UserSearchCard } from '../../components/UserSearchCard'
+import { Icon, GLYPHS } from '../../components/Icon'
 import { Filters } from './components/Filters'
 import cx from '../../helpers/cx'
+import { UsersSearchInput } from '../../components/UsersSearchInput'
 
 
 export const SearchUsersPage = ({
@@ -66,6 +68,19 @@ export const SearchUsersPage = ({
 
   return (
     <S.Layout className={cx({ filterOpened: isFiltersOpen })} RightPart={isDesktop ? RightPart : null}>
+      <S.Header>
+        <S.SearchInput>
+          <UsersSearchInput />
+        </S.SearchInput>
+        {
+          !isDesktop &&
+            <S.ToggleFilterButton onClick={toggleFilter}>
+              <Icon
+                glyph={GLYPHS.filter}
+              />
+            </S.ToggleFilterButton>
+        }
+      </S.Header>
       <S.ShadowBackground 
         onClick={filterOpened ? toggleFilter : null}
         className={cx({ filterOpened: isFiltersOpen })}

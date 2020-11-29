@@ -6,7 +6,7 @@ import * as S from './BottomNavBar.styles'
 import { GLYPHS } from '../../../components/Icon'
 
 
-export const BottomNavBar = ({ isAuth }) => {
+export const BottomNavBar = ({ isAuth, username }) => {
   const history = useHistory()
   const [pathname, setPathname] = useState('')
 
@@ -14,7 +14,7 @@ export const BottomNavBar = ({ isAuth }) => {
     {
       id: 1,
       icon: GLYPHS.profile,
-      path: '/profile',
+      path: `/profile/${username}`,
       visible: true
     },
     {

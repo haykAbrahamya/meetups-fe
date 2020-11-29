@@ -6,7 +6,7 @@ export const SEARCH_USERS_TYPES = {
 }
 
 export const sortFields = {
-  activity: 'activity',
+  activity: 'meetupsCount',
   followersCount: 'followersCount',
   rating: 'rating'
 }
