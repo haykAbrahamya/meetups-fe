@@ -48,7 +48,6 @@ export const MeetupForm = ({
 
   const submitForm = () => {
     const formDataToSend = formData
-    console.log('formData', formData)
     if (typeof formData.startDate === 'string') {
       const [day, month, year] = formData.startDate.split("/")
       formDataToSend.startDate = new Date(year, month - 1, day)
@@ -104,7 +103,7 @@ export const MeetupForm = ({
         </S.Label>
         <S.DatesContainer>
           <DatePicker
-            date={new Date(formData.startDate)}
+            date={formData.startDate}
             onChange={(startDate) => updateForm({ startDate })}
           />
           <TimePicker
