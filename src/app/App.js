@@ -27,14 +27,17 @@ export const App = ({
   ])
 
   useEffect(() => {
-    initApp()
-    window.addEventListener('resize', handleResize)
+    if (!initialized) {
+      initApp()
+      window.addEventListener('resize', handleResize)
 
-    return () => {
-      window.removeEventListener('resize', handleResize)
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
     }
   }, [
     initApp,
+    initialized,
     handleResize,
     setWindowDimensions
   ])

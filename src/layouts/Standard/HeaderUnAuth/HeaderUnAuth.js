@@ -17,7 +17,7 @@ export const HeaderUnAuth = (props) => {
         <S.LogoContainer>
           <S.Logo />
           <S.ProjectName>
-            HAY RUS GAZAN
+            Company Name
           </S.ProjectName>
         </S.LogoContainer>
         <S.LinksContainer>

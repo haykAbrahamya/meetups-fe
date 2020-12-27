@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import ModernDatepicker from 'react-modern-datepicker';
-import moment from 'moment'
 
 
 export const DatePicker = (props) => {
   const {
-    error,
-    date
+    error
   } = props
   
   return (
@@ -16,7 +14,6 @@ export const DatePicker = (props) => {
         { ...props } 
         className='DatePicker'
         format={'DD/MM/YYYY'}
-        value={moment(date).format('DD/MM/YYYY')}
       />
       {
         error &&
