@@ -6,7 +6,7 @@ import { loadFollowing } from '../network/network.actions'
 export const storeUserData = (userData, token) => async dispatch => {
   dispatch({
     type: USER_TYPES.STORE_USER_DATA,
-    userData
+    userData: userData || {}
   })
 
   FetchApi.setStorageData('userData', userData)

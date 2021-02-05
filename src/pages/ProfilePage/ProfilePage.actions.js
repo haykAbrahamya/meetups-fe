@@ -17,7 +17,7 @@ export const loadUserData = (username) => async dispatch => {
     const { data: profileData } = await FetchApi.get(`user?username=${username}`)
 
     dispatch(setKeys({
-      profileData: profileData
+      profileData: profileData || {}
     }))
 
   } catch (e) {

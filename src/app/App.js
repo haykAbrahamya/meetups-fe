@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Routes } from './routes'
 import { NotificationService } from '../components/NotificationService'
 
-
 export const App = ({
   isAuth,
   userId,

@@ -6,7 +6,7 @@ import { toggleSidebar } from '../../../common/app/app.actions'
 
 const mapStateToProps = ({ app, user }) => ({
   sidebarOpened: app.sidebarOpened,
-  isDesktop: app.dimensions.width >= 1436,
+  isDesktop: app.dimensions.width >= 1280,
   username: user.userData.username
 })
 

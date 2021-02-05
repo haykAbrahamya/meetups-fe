@@ -17,7 +17,7 @@ export const Logo = styled.div`
   height: 25px;
   background: url('/images/icons/logo.svg');
 
-  @media (min-width: 1436px) {
+  @media (min-width: 1280px) {
     margin-left: 50px;
   }
 `
@@ -56,12 +56,11 @@ export const SidebarHeader = styled.div`
   min-height: 110px;
   max-height: 110px;
   display: flex;
-  justify-content: center;
+  padding: 0px 35px;
 
   @media (min-width: 1436px) {
     width: calc(100% - 80px);
     padding: 0px 40px;
-    justify-content: normal;
   }
 `
 
