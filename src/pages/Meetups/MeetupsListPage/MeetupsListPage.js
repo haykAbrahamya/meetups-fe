@@ -23,7 +23,7 @@ export const MeetupsListPage = ({
   }
 
   return (
-    <LayoutStandard RightPart={RightPart}>
+    <LayoutStandard>
       <S.MeetupsListPageContainer>
         { !!results.length && results.map(meetup => {
             return (

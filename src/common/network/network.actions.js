@@ -3,13 +3,22 @@ import { FetchApi } from '../../helpers/FetchApi'
 
 export const loadFollowing = () => async dispatch => {
   try {
-    const { data } = await FetchApi.get('following')
+    const res = await FetchApi.get('following')
 
-    dispatch({
-      type: NETWORK_TYPES.LOAD_FOLLOWING,
-      following: data.following,
-      followers: data.followers
-    })
+    if (!!res) {
+      const {
+        data: {
+          following,
+          followers
+        }
+      } = res
+
+      dispatch({
+        type: NETWORK_TYPES.LOAD_FOLLOWING,
+        following,
+        followers
+      })
+    }
   } catch (e) {
     console.log('error', e)
   }

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 
 import * as S from './UserSearchCard.styles'
+import * as h from './UserSearchCard.helpers'
 import { Icon, GLYPHS } from '../Icon'
 import cx from '../../helpers/cx'
 
@@ -16,26 +17,6 @@ export const UserSearchCard = ({
   const [loading, setLoading] = useState(false)
 
   const [firstname, lastname] = user.fullname.split(' ')
-  const counts = [
-    {
-      id: 1,
-      icon: GLYPHS.star,
-      color: '#E8834B',
-      count: user.rating
-    },
-    {
-      id: 2,
-      icon: GLYPHS.followers,
-      color: '#4E4BE8',
-      count: user.followersCount
-    },
-    {
-      id: 3,
-      icon: GLYPHS.meetups,
-      color: '#E84B4B',
-      count: user.meetupsCount
-    }
-  ]
 
   const followingHandler = async (e) => {
     e.preventDefault()
@@ -68,7 +49,7 @@ export const UserSearchCard = ({
       </S.NamesContainer>
       <S.CountsContainer>
         {
-          counts.map(item => {
+          h.getCounts(user).map(item => {
             return (
               <S.CountItem key={item.id}>
                 <S.IconContainer color={item.color}>
