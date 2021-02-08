@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import * as S from './RegistrationForm.styles'
 import { StrengthChecker } from '../../../../components/StrengthChecker'
 
-export const RegistrationForm = ({ register, error }) => {
+export const RegistrationForm = ({ register, error, loading }) => {
   const [formData, setFormData] = useState({
     fullname: '',
     username: '',
@@ -47,7 +47,7 @@ export const RegistrationForm = ({ register, error }) => {
     } else if (password !== retypePassword) {
       errors.retypePassword = 'Գաղտնաբառերը չեն համընկնում'
     }
-    console.log('errors', errors)
+
     setFormErrors(errors)
     return !Object.keys(errors).length
   }
@@ -106,9 +106,12 @@ export const RegistrationForm = ({ register, error }) => {
           onChange={(e) => updateForm({ fullname: e.target.value})}
           error={!!formErrors.fullname}
         />
-        <S.ErrorText>
-          { formErrors.fullname }
-        </S.ErrorText>
+        {
+          formErrors.fullname &&
+            <S.ErrorText>
+              { formErrors.fullname }
+            </S.ErrorText>
+        }
       </S.FormItem>
       <S.FormItem>
         <S.Input
@@ -117,9 +120,12 @@ export const RegistrationForm = ({ register, error }) => {
           onChange={(e) => updateForm({ username: e.target.value})}
           error={!!formErrors.username}
         />
-        <S.ErrorText>
-          { formErrors.username }
-        </S.ErrorText>
+        {
+          formErrors.username &&
+            <S.ErrorText>
+              { formErrors.username }
+            </S.ErrorText>
+        }
       </S.FormItem>
       <S.PasswordItem>
         <S.Input
@@ -140,9 +146,12 @@ export const RegistrationForm = ({ register, error }) => {
             linesCount={3}
           />
         </S.StrengthCheckerContainer>
-        <S.ErrorText>
-          { formErrors.password }
-        </S.ErrorText>
+        {
+          formErrors.password &&
+            <S.ErrorText>
+              { formErrors.password }
+            </S.ErrorText>
+        }
       </S.PasswordItem>
       <S.FormItem>
         <S.Input
@@ -152,14 +161,17 @@ export const RegistrationForm = ({ register, error }) => {
           type={passwordInputType} 
           error={!!formErrors.retypePassword}
         />
-        <S.ErrorText>
-          { formErrors.retypePassword }
-        </S.ErrorText>
+        {
+          formErrors.retypePassword &&
+            <S.ErrorText>
+              { formErrors.retypePassword }
+            </S.ErrorText>
+        }
       </S.FormItem>
       <S.TermsAndConditions>
         Գրանցվելով համաձայնվում եմ <span>Օրենքներին</span>
       </S.TermsAndConditions>
-      <S.RegisterButton onClick={submitForm}>Գրանցվել</S.RegisterButton>
+      <S.RegisterButton onClick={submitForm} loading={loading}>Գրանցվել</S.RegisterButton>
     </S.RegistrationForm>  
   )
 }

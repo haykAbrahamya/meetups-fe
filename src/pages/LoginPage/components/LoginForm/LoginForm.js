@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import * as S from './LoginForm.styles'
 import { Input } from '../../../../ui'
 
-export const LoginForm = ({ login }) => {
+export const LoginForm = ({ login, error, loading }) => {
   const [formData, setFormData] = useState({
     username:"", 
     password:""
@@ -51,9 +51,15 @@ export const LoginForm = ({ login }) => {
       />
     )
   }
-  
+
   return (
     <S.LoginForm>
+      {
+        error &&
+          <S.ResponseError>
+            { error }
+          </S.ResponseError>
+      }
       <S.FormItem>
         <Input 
           placeholder='Մուտքանուն'
@@ -84,7 +90,7 @@ export const LoginForm = ({ login }) => {
             </S.ErrorText>
         }
       </S.FormItem>
-      <S.LoginButton onClick={submitForm}>
+      <S.LoginButton onClick={submitForm} loading={loading} disabled={loading}>
         Մուտք գործել
       </S.LoginButton>
       <S.ForgotPassword>

@@ -9,7 +9,11 @@ export const LoginPageContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 50px 0px;
+  padding: 30px 0px;
+
+  @media (min-width: 768px) {
+    padding: 50px 0px;
+  }
 `
 
 export const LoginPageTitle = styled.div`

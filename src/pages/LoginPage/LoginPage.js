@@ -5,6 +5,7 @@ import * as S from './LoginPage.styles'
 import { LoginForm } from './components/LoginForm'
 
 export const LoginPage = () => {
+
   return (
     <S.LoginPageContainer>
       <S.LoginPageTitle>

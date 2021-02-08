@@ -13,6 +13,11 @@ export const user = (state = initialState, action) => {
         isAuth: true,
         userData: action.userData
       }
+    case USER_TYPES.LOAD_PROFILE:
+      return {
+        ...state,
+        profileData: action.userData
+      }
     case USER_TYPES.LOGOUT:
       return {
         ...state,

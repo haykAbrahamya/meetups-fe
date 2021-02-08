@@ -1,0 +1,3 @@
+export const PROFILE_TYPES = {
+  SET_KEYS: 'PROFILE_TYPES.SET_KEYS'  
+}
