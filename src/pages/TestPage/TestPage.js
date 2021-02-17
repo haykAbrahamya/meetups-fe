@@ -7,44 +7,8 @@ import { LayoutStandard } from '../../layouts/Standard'
 export const TestPage = ({ logout }) => {
   return (
     <LayoutStandard>
-      <TestPageContainer>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <div>Test Page ContentTest Page</div>
-        <span onClick={logout}>Logout</span>
-      </TestPageContainer>
+      <div>Test Page Content</div>
+      <div onClick={logout}>Logout</div>
     </LayoutStandard>
   )
 }

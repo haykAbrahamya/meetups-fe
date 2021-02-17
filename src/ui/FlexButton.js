@@ -30,9 +30,10 @@ const Button = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0px;
   width: 374px;
+  padding: 20px 0px;
   color: #fff;
+  font-family: sans-serif;
   background: #5E36FF;
   cursor: pointer;
   border-radius: 7px;

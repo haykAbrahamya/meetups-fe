@@ -9,13 +9,7 @@ import cx from '../../helpers/cx'
 
 export const MeetupCard = ({
   userId,
-  meetup,
-  history,
-  joinMeetup,
-  deleteMeetup,
-  setFormInitialData
-}) => {
-  const {
+  meetup: {
     id,
     name,
     joined,
@@ -23,7 +17,12 @@ export const MeetupCard = ({
     startDate,
     description,
     participantsCount
-  } = meetup
+  },
+  history,
+  joinMeetup,
+  deleteMeetup,
+  setFormInitialData
+}) => {
   const [loading, setLoading] = useState(false)
 
   const startTime = moment(startDate).format('DD/MM/YYYY HH:MM')
@@ -118,17 +117,20 @@ export const MeetupCard = ({
           </S.InfoRow>
         </S.MeetupInfoWrapper>
         <S.MeetupFooter>
-          <S.JoinButton
-            onClick={(e) => onJoinMeetup(e)}
-            className={cx({ joined })}
-            loading={loading}
-          >
-            {
-              joined
-                ? 'Մասնակից'
-                : 'Մասնակցել'
-            }
-          </S.JoinButton>
+          {
+            !amICreator &&
+              <S.JoinButton
+                onClick={(e) => onJoinMeetup(e)}
+                className={cx({ joined })}
+                loading={loading}
+              >
+                {
+                  joined
+                    ? 'Մասնակից'
+                    : 'Մասնակցել'
+                }
+              </S.JoinButton>
+          }
         </S.MeetupFooter>
       </S.MeetupInfo>
     </S.MeetupCard>  

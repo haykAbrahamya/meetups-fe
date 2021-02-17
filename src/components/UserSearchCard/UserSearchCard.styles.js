@@ -91,11 +91,12 @@ export const Count = styled.div`
 
 export const FollowButton = styled(FlexButton)`
   width: 100%;
-  padding: 12px 0px;
   font-size: 13px;
   margin-top: 32px;
   border-radius: 7px;
   min-height: 16px;
+  height: 40px;
+  padding: 0px;
 
   &.follow {
     background: #64C5B4;
